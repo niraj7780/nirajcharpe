@@ -66,7 +66,7 @@ export function Footer() {
             Tailwind CSS.
           </p>
           <p className="font-mono uppercase tracking-[0.14em]">
-            Automating the ordinary. Building the extraordinary.
+            I turn &ldquo;what if?&rdquo; into &ldquo;what&rsquo;s next?&rdquo; fast.
           </p>
         </div>
       </div>

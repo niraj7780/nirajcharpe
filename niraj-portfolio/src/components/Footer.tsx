@@ -54,7 +54,7 @@ export function Footer() {
             Tailwind CSS.
           </p>
           <p className="font-mono uppercase tracking-[0.14em]">
-            Building useful things with code.
+            Automating the ordinary. Building the extraordinary.
           </p>
         </div>
       </div>

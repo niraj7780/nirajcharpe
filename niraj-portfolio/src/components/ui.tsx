@@ -147,16 +147,14 @@ export const Divider = ({ className }: { className?: string }) => (
   <hr className={cn("border-t border-border my-12", className)} />
 );
 
-interface TagProps {
+interface TagProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   children: React.ReactNode;
   href?: string;
-  target?: string;
-  rel?: string;
   variant?: "default" | "outline";
   className?: string;
 }
 
-export const Tag = ({ children, href, target, rel, variant = "default", className }: TagProps) => {
+export const Tag = ({ children, href, variant = "default", className, ...rest }: TagProps) => {
   const Component = href ? "a" : "span";
   const variants: Record<"default" | "outline", string> = {
     default: "inline-flex items-center px-2.5 py-1 text-xs font-mono font-medium text-fg-muted bg-border rounded border border-border hover:border-border-strong hover:text-fg transition-colors",
@@ -165,9 +163,8 @@ export const Tag = ({ children, href, target, rel, variant = "default", classNam
   return (
     <Component
       href={href}
-      target={target}
-      rel={rel}
       className={cn(variants[variant], className)}
+      {...rest}
     >
       {children}
     </Component>

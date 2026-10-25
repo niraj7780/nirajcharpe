@@ -2,7 +2,7 @@
 
 A minimal, evidence-based developer portfolio for **Niraj Charpe**, a software engineer at **HCLTech**, based in Noida, India.
 
-Built with **Next.js 16 (App Router) · TypeScript · Tailwind CSS 4**. No UI framework, no analytics, no tracking, and no third-party scripts.
+Built with **Next.js 16 (App Router) · TypeScript · Tailwind CSS 4**. An optional consent-based visitor-monitoring demo can be enabled via environment variables; nothing is tracked by default.
 
 ## What is included
 
@@ -32,7 +32,23 @@ Only one optional variable is supported:
 | --- | --- | --- |
 | `NEXT_PUBLIC_SITE_URL` | Canonical site URL used in metadata, sitemap, robots, and JSON-LD | `https://nirajcharpe.is-a.dev` |
 
-No API keys are required for the portfolio. The GitHub repository section uses the public, unauthenticated GitHub API.
+**Optional visitor-monitoring variables** (all off by default):
+
+| Variable | Purpose | Default |
+| --- | --- | --- |
+| `TELEGRAM_BOT_TOKEN` | Telegram bot token for notifications | none |
+| `TELEGRAM_CHAT_ID` | Destination Telegram chat ID | none |
+| `TELEGRAM_NOTIFICATIONS_ENABLED` | Enable Telegram notifications | false |
+| `ANALYTICS_ENABLED` | Enable session analytics | false |
+| `ANALYTICS_CONSENT_REQUIRED` | Require visitor consent for session analytics | true |
+| `IP_LOGGING_ENABLED` | Allow processing/truncated IP in notifications | false |
+| `APPROX_LOCATION_ENABLED` | Enable IP-derived approximate location | false |
+| `MEDIA_SUBMISSION_ENABLED` | Enable camera/audio/video demos | false |
+| `LOCATION_SHARING_ENABLED` | Enable GPS sharing demo | false |
+| `LIVE_LOCATION_TRACKING_ENABLED` | Enable live location tracking | false |
+| `OWNER_PANEL_TOKEN` | Secret for owner-only live monitor (at least 24 chars) | none |
+
+No API keys are required for the portfolio itself. The GitHub repository section uses the public, unauthenticated GitHub API.
 
 ## Featured projects and why they were selected
 
@@ -53,6 +69,48 @@ Four additional projects are shown separately:
 - **File Converter** — a small deployed browser utility.
 
 Unfinished scaffolding repositories, empty repositories, forks, and duplicate bot experiments are hidden from the live feed by default. The feed includes a toggle to show everything.
+
+## Visitor monitoring module (optional)
+
+A separate consent-based module demonstrates real-time browser events and optional media capture:
+
+- **Session analytics:** random temporary session ID, page path, referrer hostname, UTC timestamp, device/browser/OS category, and consent state. Delivered to Telegram only after the visitor allows session analytics.
+- **IP/network metadata:** disabled by default. A truncated IP may appear in notifications only if `IP_LOGGING_ENABLED`; IP-derived approximate location only if additionally enabled.
+- **GPS:** one-time browser location after `Share My Location`; live tracking is off by default, requires separate confirmation, and is stoppable.
+- **Camera/microphone/video:** user-activated, previewed before a separate confirmation, then discarded after delivery.
+- **Delivery:** Telegram Bot API from the backend only; no credentials, IP, or media payloads are exposed to the browser.
+- **Owner panel:** `/monitor`, protected by `OWNER_PANEL_TOKEN`, shows a temporary in-memory event feed (no database).
+- **Privacy:** `/privacy` and feature controls at `/demo`.
+
+### Telegram setup (BotFather)
+
+1. Message **@BotFather** and run `/newbot`; copy the bot token.
+2. Start a chat with your bot and send any message.
+3. Visit `https://api.telegram.org/bot<TOKEN>/getUpdates` and read `chat.id`.
+4. Set `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`, and the enable flags in `.env.local` or your deployment environment.
+
+### Local setup
+
+1. Copy `.env.example` to `.env.local` and set secrets.
+2. `npm run dev` — demo page at `/demo`; owner panel at `/monitor` when `OWNER_PANEL_TOKEN` is set.
+3. `npm run lint`, `npx tsc --noEmit`, `npm run build`.
+
+HTTPS is required in production for camera, microphone, and geolocation APIs.
+
+### Deployment
+
+- Vercel: import the repository, set environment variables, framework preset Next.js.
+- Netlify: the repo includes `@netlify/plugin-nextjs`; set the same environment variables.
+- On serverless hosting, the owner panel feed is temporary per instance and clears on restart; Telegram remains the durable notification channel.
+
+### Files
+
+| Area | Files |
+| --- | --- |
+| Config, buffer, Telegram, rate limits, auth | `src/lib/monitor/*` |
+| Public API routes | `src/app/api/monitor/*` |
+| Demo pages and components | `src/app/demo`, `src/app/monitor`, `src/app/privacy`, `src/components/monitor/*` |
+| Site-wide tracker and links | `src/app/layout.tsx`, `src/components/Footer.tsx` |
 
 ## Content accuracy
 
@@ -101,6 +159,9 @@ The script throws an error if the content overflows one page. Edit the content i
 | Contact section | `src/components/Contact.tsx` |
 | Footer | `src/components/Footer.tsx` |
 | SEO metadata and JSON-LD | `src/app/layout.tsx` |
+| Visitor monitoring config and helpers | `src/lib/monitor/*` |
+| Monitor API routes | `src/app/api/monitor/*` |
+| Monitor demo and owner panel | `src/app/demo`, `src/app/monitor`, `src/app/privacy`, `src/components/monitor/*` |
 | Sitemap and robots | `src/app/sitemap.ts`, `src/app/robots.ts` |
 | Open Graph image | `src/app/opengraph-image.tsx` |
 | Printable resume | `src/app/resume/page.tsx` |
@@ -128,6 +189,16 @@ The following items are intentionally missing or softened. Confirm them before a
 4. Class 12 school, board, year, and grades, if you want them listed.
 5. A working MedAI deployment URL, or confirmation that the demo should remain unavailable.
 6. Whether the domain `nirajcharpe.is-a.dev` is still the intended production domain.
+
+## Testing
+
+Executed so far:
+- `npm run lint`
+- `npx tsc --noEmit`
+- `npm run build`
+- Manual local checks of `/api/monitor/config` and the event/media/location disabled/missing-credential paths without Telegram.
+
+Not executed: live Telegram delivery with real credentials, because no Telegram bot/chat was configured for this change.
 
 ## Known issues and security notes
 

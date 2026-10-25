@@ -206,6 +206,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           rel="noopener noreferrer"
           variant="outline"
           className="flex-1 justify-center"
+          data-monitor-project={project.name}
         >
           <GitHubIcon />
           Source
@@ -217,6 +218,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             rel="noopener noreferrer"
             variant="outline"
             className="flex-1 justify-center"
+            data-monitor-project={project.name}
           >
             <ExternalIcon />
             Live demo
@@ -270,6 +272,7 @@ function SecondaryProjectCard({
             rel="noopener noreferrer"
             variant="outline"
             className="text-xs"
+            data-monitor-project={project.name}
           >
             <GitHubIcon />
             Source
@@ -281,6 +284,7 @@ function SecondaryProjectCard({
               rel="noopener noreferrer"
               variant="outline"
               className="text-xs"
+              data-monitor-project={project.name}
             >
               <ExternalIcon />
               Live demo

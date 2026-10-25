@@ -305,6 +305,7 @@ export function LiveRepos() {
                     href={url ?? "https://github.com/niraj7780?tab=repositories"}
                     target="_blank"
                     rel="noopener noreferrer"
+                    data-monitor-project={repo.name}
                     className="group block rounded border border-border bg-bg p-5 transition-colors hover:border-border-strong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
                   >
                     <div className="mb-2 flex items-center justify-between gap-3">

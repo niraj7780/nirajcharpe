@@ -39,6 +39,18 @@ export function Footer() {
             >
               Email
             </a>
+            <Link
+              href="/demo"
+              className="text-sm text-fg-muted transition-colors hover:text-fg"
+            >
+              Demo
+            </Link>
+            <Link
+              href="/privacy"
+              className="text-sm text-fg-muted transition-colors hover:text-fg"
+            >
+              Privacy
+            </Link>
             <a
               href="#top"
               className="text-sm text-fg-muted transition-colors hover:text-fg"

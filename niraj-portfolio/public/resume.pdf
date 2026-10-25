@@ -1,0 +1,95 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 4 0 R /F2 5 0 R >> >> /Contents 6 0 R >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+6 0 obj
+<< /Length 6691 >>
+stream
+BT /F2 23 Tf 0.06 0.06 0.06 rg 42.00 772.89 Td (NIRAJ CHARPE) Tj ET
+BT /F1 10.5 Tf 0.32 0.32 0.32 rg 42.00 757.89 Td (Software Engineer at HCLTech) Tj ET
+BT /F1 8.2 Tf 0.45 0.45 0.45 rg 42.00 741.89 Td (nirajcharpe48@gmail.com | github.com/niraj7780 | linkedin.com/in/niraj-charpe | Noida, India) Tj ET
+0.9 0.9 0.9 RG 0.6 w 42 736.89 m 553.28 736.89 l S
+BT /F2 8 Tf 0.302 0.486 0.059 rg 42.00 716.89 Td (PROFESSIONAL SUMMARY) Tj ET
+0.9 0.9 0.9 RG 0.6 w 42 714.89 m 553.28 714.89 l S
+BT /F1 8.5 Tf 0.32 0.32 0.32 rg 42.00 697.09 Td (Software engineer at HCLTech, building practical software across backend development, databases, web technologies,) Tj ET
+BT /F1 8.5 Tf 0.32 0.32 0.32 rg 42.00 685.29 Td (and AI. Completed Class 12 and developed programming foundations through professional experience and self-directed) Tj ET
+BT /F1 8.5 Tf 0.32 0.32 0.32 rg 42.00 673.49 Td (project work. Focused on backend engineering, database systems, and enterprise technologies.) Tj ET
+BT /F2 8 Tf 0.302 0.486 0.059 rg 42.00 659.49 Td (TECHNICAL SKILLS) Tj ET
+0.9 0.9 0.9 RG 0.6 w 42 657.49 m 553.28 657.49 l S
+BT /F1 8.2 Tf 0.32 0.32 0.32 rg 42.00 640.29 Td (Used in projects: Python, JavaScript, TypeScript, React, Next.js, Tailwind CSS, FastAPI, Flask, Django,) Tj ET
+BT /F1 8.2 Tf 0.32 0.32 0.32 rg 42.00 629.09 Td (Node.js/Express, SQLite and PostgreSQL basics, Google Gemini API, PyTorch, Docker, Git, GitHub, Vercel, Monaco Editor.) Tj ET
+BT /F1 8.2 Tf 0.32 0.32 0.32 rg 42.00 617.89 Td (Practising / learning: Java, C++, SQL Server and MySQL fundamentals, data structures and algorithms, system design,) Tj ET
+BT /F1 8.2 Tf 0.32 0.32 0.32 rg 42.00 606.69 Td (testing, CI/CD, SAP ABAP fundamentals, cloud fundamentals.) Tj ET
+BT /F1 8.2 Tf 0.32 0.32 0.32 rg 42.00 595.49 Td (Familiar with fundamentals: C, Linux and shell basics, REST API design, web security basics, Agile/Scrum, technical) Tj ET
+BT /F1 8.2 Tf 0.32 0.32 0.32 rg 42.00 584.29 Td (writing.) Tj ET
+BT /F2 8 Tf 0.302 0.486 0.059 rg 42.00 570.29 Td (FEATURED PROJECTS) Tj ET
+0.9 0.9 0.9 RG 0.6 w 42 568.29 m 553.28 568.29 l S
+BT /F2 8.8 Tf 0.06 0.06 0.06 rg 42.00 550.29 Td (CareerLens AI - Next.js, FastAPI, TypeScript, Gemini API) Tj ET
+BT /F1 8.2 Tf 0.32 0.32 0.32 rg 42.00 539.49 Td (Resume analysis platform that parses PDF/DOCX files and maps skills to career paths with a learning plan.) Tj ET
+BT /F1 8 Tf 0.32 0.32 0.32 rg 54.00 528.69 Td (Client and API validation; PyMuPDF and python-docx extraction) Tj ET
+BT /F1 8 Tf 0.32 0.32 0.32 rg 54.00 517.89 Td (Gemini analysis for skills, experience, education, and skill gaps) Tj ET
+BT /F2 8.8 Tf 0.06 0.06 0.06 rg 42.00 501.89 Td (MiniGPT - Python, PyTorch, NumPy) Tj ET
+BT /F1 8.2 Tf 0.32 0.32 0.32 rg 42.00 491.09 Td (GPT-style transformer language model built from scratch without external APIs or pretrained weights.) Tj ET
+BT /F1 8 Tf 0.32 0.32 0.32 rg 54.00 480.29 Td (Character tokenizer, causal self-attention, transformer blocks) Tj ET
+BT /F1 8 Tf 0.32 0.32 0.32 rg 54.00 469.49 Td (Training loop with loss tracking, checkpointing, and sampling) Tj ET
+BT /F2 8.8 Tf 0.06 0.06 0.06 rg 42.00 453.49 Td (DevCode Online Compiler - Express.js, Monaco, Docker, TypeScript) Tj ET
+BT /F1 8.2 Tf 0.32 0.32 0.32 rg 42.00 442.69 Td (Browser-based compiler with hardened Docker sandboxing and a Monaco editor.) Tj ET
+BT /F1 8 Tf 0.32 0.32 0.32 rg 54.00 431.89 Td (Network disabled, read-only rootfs, dropped capabilities) Tj ET
+BT /F1 8 Tf 0.32 0.32 0.32 rg 54.00 421.09 Td (CPU, memory, PID limits and hard wall-clock timeouts) Tj ET
+BT /F2 8.8 Tf 0.06 0.06 0.06 rg 42.00 405.09 Td (MedAI Medical Query Generator - Flask, Gemini API, Python) Tj ET
+BT /F1 8.2 Tf 0.32 0.32 0.32 rg 42.00 394.29 Td (Medical information assistant with safety-focused prompts and clear educational disclaimers.) Tj ET
+BT /F1 8 Tf 0.32 0.32 0.32 rg 54.00 383.49 Td (No diagnosis, no prescriptions, emergency escalation guidance) Tj ET
+BT /F1 8 Tf 0.32 0.32 0.32 rg 54.00 372.69 Td (Informational prototype only; not a clinical tool) Tj ET
+BT /F2 8.8 Tf 0.06 0.06 0.06 rg 42.00 356.69 Td (NirajVersant - HTML, CSS, JavaScript, Web Speech API) Tj ET
+BT /F1 8.2 Tf 0.32 0.32 0.32 rg 42.00 345.89 Td (English proficiency practice platform with 15 Versant-format tests and browser speech recognition.) Tj ET
+BT /F1 8 Tf 0.32 0.32 0.32 rg 54.00 335.09 Td (15 tests, 70 questions each, practice scoring out of 80) Tj ET
+BT /F1 8 Tf 0.32 0.32 0.32 rg 54.00 324.29 Td (No accounts or tracking; runs entirely in the browser) Tj ET
+BT /F2 8.8 Tf 0.06 0.06 0.06 rg 42.00 308.29 Td (Django E-Commerce - Django, Stripe, SQLite / PostgreSQL) Tj ET
+BT /F1 8.2 Tf 0.32 0.32 0.32 rg 42.00 297.49 Td (E-commerce application with authentication, cart, checkout, Stripe payments, and order history.) Tj ET
+BT /F1 8 Tf 0.32 0.32 0.32 rg 54.00 286.69 Td (django-allauth authentication and address management) Tj ET
+BT /F1 8 Tf 0.32 0.32 0.32 rg 54.00 275.89 Td (Stripe Checkout integration and order records) Tj ET
+BT /F2 8 Tf 0.302 0.486 0.059 rg 42.00 261.89 Td (EXPERIENCE) Tj ET
+0.9 0.9 0.9 RG 0.6 w 42 259.89 m 553.28 259.89 l S
+BT /F2 8.8 Tf 0.06 0.06 0.06 rg 42.00 241.89 Td (Software Engineer - HCLTech, Noida) Tj ET
+BT /F1 8.2 Tf 0.32 0.32 0.32 rg 42.00 231.09 Td (Software engineering across programming fundamentals, databases, enterprise systems, cloud concepts, Git workflows, and) Tj ET
+BT /F1 8.2 Tf 0.32 0.32 0.32 rg 42.00 220.29 Td (professional skills.) Tj ET
+BT /F2 8.8 Tf 0.06 0.06 0.06 rg 42.00 204.29 Td (Self-Directed Project Work - Independent \(ongoing\)) Tj ET
+BT /F1 8.2 Tf 0.32 0.32 0.32 rg 42.00 193.49 Td (Built and published projects across AI, backend development, web technologies, and automation with an emphasis on) Tj ET
+BT /F1 8.2 Tf 0.32 0.32 0.32 rg 42.00 182.69 Td (inspectable source code and honest scope.) Tj ET
+BT /F2 8 Tf 0.302 0.486 0.059 rg 42.00 168.69 Td (EDUCATION) Tj ET
+0.9 0.9 0.9 RG 0.6 w 42 166.69 m 553.28 166.69 l S
+BT /F1 8.4 Tf 0.32 0.32 0.32 rg 42.00 149.29 Td (Class 12 completed. School, board, grades, and dates are intentionally not listed.) Tj ET
+BT /F2 8 Tf 0.302 0.486 0.059 rg 42.00 135.29 Td (ADDITIONAL PROJECTS) Tj ET
+0.9 0.9 0.9 RG 0.6 w 42 133.29 m 553.28 133.29 l S
+BT /F1 8.2 Tf 0.32 0.32 0.32 rg 42.00 116.09 Td (Bank Management System \(Python, Tkinter, SQLite\): role-based desktop app. All Tools In One Place \(Next.js, TypeScript\):) Tj ET
+BT /F1 8.2 Tf 0.32 0.32 0.32 rg 42.00 104.89 Td (utility platform with PDF, QR, formatting, encryption, and compression tools. Weather Alert Bot \(FastAPI, React Native,) Tj ET
+BT /F1 8.2 Tf 0.32 0.32 0.32 rg 42.00 93.69 Td (Twilio\): WhatsApp rain alerts. File Converter: deployed browser utility.) Tj ET
+endstream
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000121 00000 n 
+0000000263 00000 n 
+0000000360 00000 n 
+0000000462 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R >>
+startxref
+7205
+%%EOF

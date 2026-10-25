@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="6" fill="#fafafa"/>
+  <text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="900" font-size="18" fill="#0f0f0f">NC</text>
+  <text x="50%" y="72%" dominant-baseline="middle" text-anchor="middle" font-family="monospace" font-weight="600" font-size="5" fill="#84cc16">.</text>
+</svg>

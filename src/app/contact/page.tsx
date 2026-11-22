@@ -14,59 +14,63 @@ import {
   ArrowRight,
   AlertCircle,
   Send,
-  Building2,
-  Sparkles
+  Terminal,
+  Zap
 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 
 function ContactFormContent() {
   const searchParams = useSearchParams();
-  const prefilledService = searchParams.get('service') || searchParams.get('package') || '';
-  const prefilledBudget = searchParams.get('budget') || '';
+  const prefilledWebsite = searchParams.get('websiteCategory') || '';
+  const prefilledAi = searchParams.get('aiTool') || '';
+  const prefilledAutomation = searchParams.get('automationPipeline') || '';
+
+  const initialService = prefilledWebsite
+    ? `Website Development: ${prefilledWebsite}`
+    : prefilledAi
+    ? `AI Tool: ${prefilledAi}`
+    : prefilledAutomation
+    ? `Automation: ${prefilledAutomation}`
+    : 'Website Development (Next.js & Vercel)';
 
   const [formData, setFormData] = React.useState({
     name: '',
     email: '',
     company: '',
-    websiteType: prefilledService || 'Business Website Development',
-    budget: prefilledBudget || '₹35,000 – ₹60,000',
+    serviceCategory: initialService,
+    budget: '₹35,000 – ₹75,000 ($450 – $950)',
     details: '',
     timeline: '2 – 4 weeks',
-    website_url_honeypot: '', // anti-spam honeypot
+    website_url_honeypot: '',
   });
 
   const [loading, setLoading] = React.useState(false);
   const [errorMsg, setErrorMsg] = React.useState<string | null>(null);
   const [submittedId, setSubmittedId] = React.useState<string | null>(null);
 
-  const websiteTypes = [
-    'Business Website Development',
-    'E-commerce Website Development',
-    'Custom Web Application Development',
-    'SaaS MVP Development',
-    'AI-Powered Application Development',
-    'Portfolio Website Development',
-    'Landing Page Development',
-    '3D Interactive Website Development',
-    'Python Backend & Automation',
-    'Executive Dashboard Development',
-    'Website Redesign & Retainer',
-    'Other Custom Scope'
+  const serviceCategories = [
+    'Website Development (Next.js & Vercel)',
+    'Custom AI Tools & LLM Knowledge Grounding (RAG)',
+    'Business Automation (Python & API Pipelines)',
+    'E-commerce Storefront & Checkout Gateway',
+    'Custom SaaS Platform & Web Application',
+    'Executive Dashboard & Data Analytics',
+    'Other Bespoke Architecture'
   ];
 
   const budgetRanges = [
-    '₹18,000 – ₹35,000 ($240 – $450)',
-    '₹35,000 – ₹60,000 ($450 – $800)',
-    '₹60,000 – ₹1,20,000 ($800 – $1,500)',
-    '₹1,20,000+ ($1,500+)',
-    'To be scoped after technical review'
+    '₹25,000 – ₹45,000 ($320 – $580)',
+    '₹45,000 – ₹85,000 ($580 – $1,100)',
+    '₹85,000 – ₹1,50,000 ($1,100 – $1,900)',
+    '₹1,50,000+ ($1,900+)',
+    'To be established during technical discovery'
   ];
 
   const timelineOptions = [
     'Urgent (Under 2 weeks)',
     '2 – 4 weeks (Standard)',
-    '1 – 2 months (Complex Scope)',
+    '1 – 2 months (Comprehensive Architecture)',
     'Flexible / Milestone-driven'
   ];
 
@@ -81,7 +85,16 @@ function ContactFormContent() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          websiteType: formData.serviceCategory,
+          budget: formData.budget,
+          details: formData.details,
+          timeline: formData.timeline,
+          website_url_honeypot: formData.website_url_honeypot,
+        }),
       });
 
       const data = await res.json();
@@ -99,22 +112,22 @@ function ContactFormContent() {
   };
 
   return (
-    <div className="p-8 sm:p-10 rounded-2xl border border-neutral-200/80 dark:border-neutral-800/80 bg-white dark:bg-[#11131B] shadow-xl">
+    <div className="p-8 sm:p-10 border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0A0A0A]">
       {submittedId ? (
         <div className="py-12 text-center space-y-4">
-          <div className="w-16 h-16 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-600 flex items-center justify-center mx-auto">
+          <div className="w-14 h-14 border border-[#A3F527] bg-[#A3F527]/10 text-[#A3F527] flex items-center justify-center mx-auto">
             <CheckCircle2 className="w-8 h-8" />
           </div>
 
           <div className="space-y-2">
-            <Badge variant="success" className="font-mono text-xs">
-              Inquiry Reference: {submittedId}
+            <Badge variant="lime" className="font-mono text-xs">
+              INQUIRY_REF: {submittedId}
             </Badge>
-            <h3 className="text-2xl font-bold text-neutral-950 dark:text-white">
-              Project Inquiry Received!
+            <h3 className="text-2xl font-bold uppercase font-mono text-neutral-950 dark:text-white">
+              Project Inquiry Received
             </h3>
-            <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 max-w-md mx-auto leading-relaxed">
-              Thank you for reaching out. Niraj will review your project details and respond with preliminary technical architecture suggestions and availability within 24 hours.
+            <p className="text-xs font-mono text-neutral-600 dark:text-neutral-400 max-w-md mx-auto leading-relaxed">
+              Thank you. Niraj will review your scope specifications, prepare architectural recommendations, and respond within 24 business hours.
             </p>
           </div>
 
@@ -126,44 +139,44 @@ function ContactFormContent() {
                   name: '',
                   email: '',
                   company: '',
-                  websiteType: 'Business Website Development',
-                  budget: '₹35,000 – ₹60,000',
+                  serviceCategory: 'Website Development (Next.js & Vercel)',
+                  budget: '₹35,000 – ₹75,000 ($450 – $950)',
                   details: '',
                   timeline: '2 – 4 weeks',
                   website_url_honeypot: '',
                 });
               }}
-              className="px-5 py-2.5 rounded-xl border border-neutral-300 dark:border-neutral-700 text-xs font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-800"
+              className="px-5 py-2.5 border border-neutral-300 dark:border-neutral-700 text-xs font-mono font-bold uppercase hover:border-[#A3F527]"
             >
               Submit Another Inquiry
             </button>
             <Link
-              href="/portfolio"
-              className="px-5 py-2.5 rounded-xl bg-[#0066FF] text-white text-xs font-semibold hover:bg-[#0052db]"
+              href="/websites"
+              className="px-5 py-2.5 bg-[#A3F527] text-black text-xs font-mono font-bold uppercase hover:bg-[#8AE40E]"
             >
-              Explore More Case Studies
+              Explore 20 Websites
             </Link>
           </div>
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-6">
-          <div>
-            <h3 className="text-xl font-bold text-neutral-950 dark:text-white">
+          <div className="border-b border-neutral-100 dark:border-neutral-900 pb-3">
+            <h3 className="text-xl font-bold uppercase font-mono text-neutral-950 dark:text-white">
               Project Scope & Inquiry Form
             </h3>
-            <p className="text-xs text-neutral-500 mt-1">
-              Please provide as much context as possible to receive an accurate milestone estimate.
+            <p className="text-xs font-mono text-neutral-500 mt-1">
+              Direct submission to Niraj Charpe. Response guaranteed within 24 hours.
             </p>
           </div>
 
           {errorMsg && (
-            <div className="p-3.5 rounded-xl bg-red-500/10 border border-red-500/30 text-red-600 dark:text-red-400 text-xs flex items-center gap-2">
+            <div className="p-3 border border-red-500 bg-red-500/10 text-red-500 text-xs font-mono flex items-center gap-2">
               <AlertCircle className="w-4 h-4 shrink-0" />
               <span>{errorMsg}</span>
             </div>
           )}
 
-          {/* Anti-Spam Honeypot (hidden from human users) */}
+          {/* Anti-Spam Honeypot */}
           <div className="hidden" aria-hidden="true">
             <input
               type="text"
@@ -177,80 +190,80 @@ function ContactFormContent() {
             />
           </div>
 
-          {/* Row 1: Full Name & Email */}
+          {/* Row 1: Full Name & Business Email */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-mono uppercase tracking-wider text-neutral-500 mb-1.5">
+              <label className="block text-[11px] font-mono uppercase tracking-wider text-neutral-500 mb-1">
                 Full Name *
               </label>
               <input
                 type="text"
                 required
-                placeholder="e.g. Rahul Sharma"
+                placeholder="e.g. Vikramaditya Sen"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-neutral-200 dark:border-neutral-700 bg-neutral-50/50 dark:bg-neutral-900 text-xs text-neutral-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3.5 py-2.5 border border-neutral-300 dark:border-neutral-800 bg-white dark:bg-[#050505] text-xs font-mono text-neutral-900 dark:text-white focus:outline-none focus:border-[#A3F527]"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-mono uppercase tracking-wider text-neutral-500 mb-1.5">
+              <label className="block text-[11px] font-mono uppercase tracking-wider text-neutral-500 mb-1">
                 Business Email *
               </label>
               <input
                 type="email"
                 required
-                placeholder="rahul@company.com"
+                placeholder="vikram@company.com"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-neutral-200 dark:border-neutral-700 bg-neutral-50/50 dark:bg-neutral-900 text-xs text-neutral-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3.5 py-2.5 border border-neutral-300 dark:border-neutral-800 bg-white dark:bg-[#050505] text-xs font-mono text-neutral-900 dark:text-white focus:outline-none focus:border-[#A3F527]"
               />
             </div>
           </div>
 
-          {/* Row 2: Company / Organization */}
+          {/* Row 2: Company */}
           <div>
-            <label className="block text-xs font-mono uppercase tracking-wider text-neutral-500 mb-1.5">
+            <label className="block text-[11px] font-mono uppercase tracking-wider text-neutral-500 mb-1">
               Company or Brand Name (Optional)
             </label>
             <input
               type="text"
-              placeholder="e.g. NextGen Therapeutics or Independent"
+              placeholder="e.g. Apex Horizon Capital or Independent"
               value={formData.company}
               onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-              className="w-full px-3.5 py-2.5 rounded-xl border border-neutral-200 dark:border-neutral-700 bg-neutral-50/50 dark:bg-neutral-900 text-xs text-neutral-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3.5 py-2.5 border border-neutral-300 dark:border-neutral-800 bg-white dark:bg-[#050505] text-xs font-mono text-neutral-900 dark:text-white focus:outline-none focus:border-[#A3F527]"
             />
           </div>
 
-          {/* Row 3: Website Type & Budget */}
+          {/* Row 3: Service Category & Budget */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-mono uppercase tracking-wider text-neutral-500 mb-1.5">
-                Project Service Category *
+              <label className="block text-[11px] font-mono uppercase tracking-wider text-neutral-500 mb-1">
+                Core Service Category *
               </label>
               <select
-                value={formData.websiteType}
+                value={formData.serviceCategory}
                 onChange={(e) =>
-                  setFormData({ ...formData, websiteType: e.target.value })
+                  setFormData({ ...formData, serviceCategory: e.target.value })
                 }
-                className="w-full px-3.5 py-2.5 rounded-xl border border-neutral-200 dark:border-neutral-700 bg-neutral-50/50 dark:bg-neutral-900 text-xs text-neutral-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3.5 py-2.5 border border-neutral-300 dark:border-neutral-800 bg-white dark:bg-[#050505] text-xs font-mono text-neutral-900 dark:text-white focus:outline-none focus:border-[#A3F527]"
               >
-                {websiteTypes.map((t) => (
-                  <option key={t} value={t}>
-                    {t}
+                {serviceCategories.map((s) => (
+                  <option key={s} value={s}>
+                    {s}
                   </option>
                 ))}
               </select>
             </div>
 
             <div>
-              <label className="block text-xs font-mono uppercase tracking-wider text-neutral-500 mb-1.5">
-                Indicative Budget Range *
+              <label className="block text-[11px] font-mono uppercase tracking-wider text-neutral-500 mb-1">
+                Indicative Project Budget *
               </label>
               <select
                 value={formData.budget}
                 onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-neutral-200 dark:border-neutral-700 bg-neutral-50/50 dark:bg-neutral-900 text-xs text-neutral-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3.5 py-2.5 border border-neutral-300 dark:border-neutral-800 bg-white dark:bg-[#050505] text-xs font-mono text-neutral-900 dark:text-white focus:outline-none focus:border-[#A3F527]"
               >
                 {budgetRanges.map((b) => (
                   <option key={b} value={b}>
@@ -263,13 +276,13 @@ function ContactFormContent() {
 
           {/* Row 4: Timeline */}
           <div>
-            <label className="block text-xs font-mono uppercase tracking-wider text-neutral-500 mb-1.5">
+            <label className="block text-[11px] font-mono uppercase tracking-wider text-neutral-500 mb-1">
               Expected Delivery Timeline *
             </label>
             <select
               value={formData.timeline}
               onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
-              className="w-full px-3.5 py-2.5 rounded-xl border border-neutral-200 dark:border-neutral-700 bg-neutral-50/50 dark:bg-neutral-900 text-xs text-neutral-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3.5 py-2.5 border border-neutral-300 dark:border-neutral-800 bg-white dark:bg-[#050505] text-xs font-mono text-neutral-900 dark:text-white focus:outline-none focus:border-[#A3F527]"
             >
               {timelineOptions.map((tl) => (
                 <option key={tl} value={tl}>
@@ -279,41 +292,39 @@ function ContactFormContent() {
             </select>
           </div>
 
-          {/* Row 5: Detailed Project Description */}
+          {/* Row 5: Detailed Scope Description */}
           <div>
-            <label className="block text-xs font-mono uppercase tracking-wider text-neutral-500 mb-1.5">
-              Project Details & Core Objectives *
+            <label className="block text-[11px] font-mono uppercase tracking-wider text-neutral-500 mb-1">
+              Project Description & Functional Deliverables *
             </label>
             <textarea
               required
               rows={4}
-              placeholder="Tell me about your product, your target clients, key technical requirements (e.g. Stripe checkout, CMS, user auth, 3D elements), or reference websites you admire..."
+              placeholder="Describe what you need built: e.g. Next.js SaaS landing with Stripe checkout, Python B2B lead scraping pipeline, internal PDF document RAG assistant..."
               value={formData.details}
               onChange={(e) => setFormData({ ...formData, details: e.target.value })}
-              className="w-full px-3.5 py-2.5 rounded-xl border border-neutral-200 dark:border-neutral-700 bg-neutral-50/50 dark:bg-neutral-900 text-xs text-neutral-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 leading-relaxed"
+              className="w-full px-3.5 py-2.5 border border-neutral-300 dark:border-neutral-800 bg-white dark:bg-[#050505] text-xs font-mono text-neutral-900 dark:text-white focus:outline-none focus:border-[#A3F527] leading-relaxed"
             />
           </div>
 
           {/* Submit Button */}
-          <Button
+          <button
             type="submit"
-            variant="electric"
-            size="lg"
             disabled={loading}
-            className="w-full text-xs font-bold py-3.5"
+            className="w-full py-3.5 bg-[#A3F527] hover:bg-[#8AE40E] text-black font-mono font-bold text-xs uppercase tracking-wider transition-all shadow-[0_0_15px_rgba(163,245,39,0.3)] hover:shadow-[0_0_22px_rgba(163,245,39,0.5)] active:translate-y-0.5 disabled:opacity-50 flex items-center justify-center gap-2"
           >
             {loading ? (
               <span>Validating & Submitting Scope...</span>
             ) : (
-              <div className="flex items-center gap-2">
-                <span>Submit Project Inquiry</span>
+              <>
+                <span>Submit Scope to Niraj</span>
                 <Send className="w-4 h-4" />
-              </div>
+              </>
             )}
-          </Button>
+          </button>
 
-          <p className="text-[11px] text-neutral-500 text-center font-mono">
-            🔒 Guaranteed response within 24 hours • Non-Disclosure Agreement on demand
+          <p className="text-[10px] text-neutral-500 text-center font-mono">
+            🔒 Direct developer review • Guaranteed response within 24 business hours
           </p>
         </form>
       )}
@@ -323,128 +334,128 @@ function ContactFormContent() {
 
 export default function ContactPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-white dark:bg-[#090A0F] text-neutral-900 dark:text-neutral-100">
+    <div className="flex flex-col min-h-screen bg-white dark:bg-[#050505] text-neutral-900 dark:text-neutral-100">
       {/* Header Banner */}
-      <section className="pt-16 pb-20 border-b border-neutral-200/80 dark:border-neutral-800/80 bg-neutral-50/50 dark:bg-[#0B0C12] bg-grid-pattern">
+      <section className="pt-16 pb-20 border-b border-neutral-200 dark:border-neutral-800 bg-neutral-50/50 dark:bg-[#080808] bg-tech-grid">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <Badge variant="electric" className="font-mono text-xs uppercase tracking-wider">
-            Start A Conversation
+          <Badge variant="lime" className="uppercase tracking-widest text-[11px]">
+            DIRECT COLLABORATION
           </Badge>
-          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-neutral-950 dark:text-white">
-            Let&apos;s Build Your Website
+          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight uppercase font-mono text-neutral-950 dark:text-white">
+            Initiate Project Inquiry
           </h1>
-          <p className="text-base sm:text-lg text-neutral-600 dark:text-neutral-300 max-w-2xl mx-auto leading-relaxed">
-            Have an upcoming project, redesign, or custom application in mind? Submit your scope details below and I will respond with a technical review and milestone estimate within 24 hours.
+          <p className="text-xs sm:text-sm font-mono text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto leading-relaxed">
+            Have an upcoming website, custom AI tool, or business automation pipeline? Submit your specifications below for direct engineering evaluation.
           </p>
         </div>
       </section>
 
-      {/* Main Form & Contact Information Grid */}
-      <section className="py-20 border-b border-neutral-200/80 dark:border-neutral-800/80">
+      {/* Main Grid */}
+      <section className="py-20 border-b border-neutral-200 dark:border-neutral-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-            {/* Left Column: Direct Info & Trust Badges */}
+            {/* Left Column: Direct Info */}
             <div className="lg:col-span-5 space-y-8">
-              <div className="space-y-4">
-                <span className="text-xs font-mono font-bold text-[#0066FF] uppercase tracking-wider block">
-                  DIRECT DEVELOPER CONTACT
+              <div className="space-y-3">
+                <span className="text-[11px] font-mono font-bold text-[#A3F527] uppercase tracking-wider block">
+                  COMMUNICATION CHANNELS
                 </span>
-                <h2 className="text-2xl font-bold text-neutral-950 dark:text-white">
-                  Direct Inquiries & Rapid Consultation
+                <h2 className="text-2xl font-bold uppercase font-mono text-neutral-950 dark:text-white">
+                  Direct Inquiries & Technical Review
                 </h2>
-                <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                  Every message goes directly to Niraj. I evaluate project feasibility, architecture stack recommendations, and timeline fit personally.
+                <p className="text-xs font-mono text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                  Every inquiry is handled directly by Niraj. No junior account managers or sales pitches.
                 </p>
               </div>
 
               {/* Direct Info List */}
-              <div className="space-y-4 text-xs font-mono">
-                <div className="p-4 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#11131B] flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-lg bg-blue-50 dark:bg-blue-950 text-[#0066FF] flex items-center justify-center">
+              <div className="space-y-3 text-xs font-mono">
+                <div className="p-4 border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0A0A0A] flex items-center gap-3">
+                  <div className="w-8 h-8 border border-[#A3F527] bg-[#A3F527]/10 text-[#A3F527] flex items-center justify-center">
                     <Mail className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="text-neutral-400 block text-[10px]">DIRECT EMAIL</span>
+                    <span className="text-neutral-400 block text-[10px] uppercase font-bold">DIRECT EMAIL</span>
                     <a
                       href="mailto:nirajcharpe48@gmail.com"
-                      className="font-bold text-neutral-900 dark:text-white hover:text-blue-500 select-all"
+                      className="font-bold text-neutral-900 dark:text-white hover:text-[#A3F527] select-all"
                     >
                       nirajcharpe48@gmail.com
                     </a>
                   </div>
                 </div>
 
-                <div className="p-4 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#11131B] flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-lg bg-emerald-50 dark:bg-emerald-950 text-emerald-600 flex items-center justify-center">
-                    <Clock className="w-4 h-4" />
+                <div className="p-4 border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0A0A0A] flex items-center gap-3">
+                  <div className="w-8 h-8 border border-neutral-300 dark:border-neutral-800 text-neutral-400 flex items-center justify-center">
+                    <Clock className="w-4 h-4 text-[#A3F527]" />
                   </div>
                   <div>
-                    <span className="text-neutral-400 block text-[10px]">RESPONSE WINDOW</span>
+                    <span className="text-neutral-400 block text-[10px] uppercase font-bold">RESPONSE WINDOW</span>
                     <span className="font-bold text-neutral-900 dark:text-white">
                       Within 24 business hours
                     </span>
                   </div>
                 </div>
 
-                <div className="p-4 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#11131B] flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-lg bg-purple-50 dark:bg-purple-950 text-purple-600 flex items-center justify-center">
-                    <MapPin className="w-4 h-4" />
+                <div className="p-4 border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0A0A0A] flex items-center gap-3">
+                  <div className="w-8 h-8 border border-neutral-300 dark:border-neutral-800 text-neutral-400 flex items-center justify-center">
+                    <MapPin className="w-4 h-4 text-[#A3F527]" />
                   </div>
                   <div>
-                    <span className="text-neutral-400 block text-[10px]">LOCATION</span>
+                    <span className="text-neutral-400 block text-[10px] uppercase font-bold">LOCATION</span>
                     <span className="font-bold text-neutral-900 dark:text-white">
-                      India • Global Remote Delivery
+                      India • Worldwide Remote Delivery
                     </span>
                   </div>
                 </div>
               </div>
 
-              {/* Social Channels */}
-              <div className="space-y-3 pt-2">
-                <span className="text-xs font-mono text-neutral-400 uppercase tracking-wider block">
-                  Verify Credentials & Code:
+              {/* Verified Profiles */}
+              <div className="space-y-2 pt-2">
+                <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400 font-bold block">
+                  Verify Code & Credentials:
                 </span>
-                <div className="flex items-center gap-3">
+                <div className="flex gap-2">
                   <a
                     href="https://github.com/niraj7780"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 p-3 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#11131B] text-xs font-semibold text-neutral-800 dark:text-neutral-200 hover:border-neutral-400 dark:hover:border-neutral-600 transition-colors flex items-center justify-center gap-2"
+                    className="flex-1 p-3 border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0A0A0A] text-xs font-mono font-bold text-neutral-800 dark:text-neutral-200 hover:border-[#A3F527] hover:text-[#A3F527] transition-colors flex items-center justify-center gap-2"
                   >
                     <Github className="w-4 h-4" />
-                    <span>GitHub (@niraj7780)</span>
+                    <span>GitHub</span>
                   </a>
 
                   <a
                     href="https://linkedin.com/in/niraj-charpe"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 p-3 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#11131B] text-xs font-semibold text-neutral-800 dark:text-neutral-200 hover:border-neutral-400 dark:hover:border-neutral-600 transition-colors flex items-center justify-center gap-2"
+                    className="flex-1 p-3 border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0A0A0A] text-xs font-mono font-bold text-neutral-800 dark:text-neutral-200 hover:border-[#A3F527] hover:text-[#A3F527] transition-colors flex items-center justify-center gap-2"
                   >
-                    <Linkedin className="w-4 h-4 text-[#0066FF]" />
-                    <span>LinkedIn (Niraj Charpe)</span>
+                    <Linkedin className="w-4 h-4" />
+                    <span>LinkedIn</span>
                   </a>
                 </div>
               </div>
 
-              {/* Guarantees Callout */}
-              <div className="p-5 rounded-xl border border-emerald-500/20 bg-emerald-50/20 dark:bg-emerald-950/20 space-y-2 text-xs">
-                <div className="flex items-center gap-2 font-bold text-emerald-700 dark:text-emerald-400">
+              {/* Guarantees */}
+              <div className="p-4 border border-[#A3F527]/30 bg-[#A3F527]/5 space-y-1.5 text-xs font-mono">
+                <div className="flex items-center gap-1.5 font-bold text-[#A3F527]">
                   <ShieldCheck className="w-4 h-4" />
-                  <span>Client Privacy & Milestone Commitment</span>
+                  <span>Confidentiality & Milestone Security</span>
                 </div>
-                <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                  Your project specifications, proprietary concepts, and contact information are kept strictly confidential. Non-Disclosure Agreements (NDAs) signed upon request.
+                <p className="text-neutral-700 dark:text-neutral-300 leading-relaxed text-[11px]">
+                  All project briefs, client data, and proprietary workflows remain strictly confidential. Non-Disclosure Agreements (NDAs) signed upon request.
                 </p>
               </div>
             </div>
 
-            {/* Right Column: Interactive Inquiry Form wrapped in Suspense */}
+            {/* Right Column: Form */}
             <div className="lg:col-span-7">
               <React.Suspense
                 fallback={
-                  <div className="p-8 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#11131B] text-center text-xs text-neutral-400 animate-pulse">
-                    Loading inquiry form...
+                  <div className="p-8 border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0A0A0A] text-center text-xs font-mono text-neutral-400">
+                    Loading inquiry terminal...
                   </div>
                 }
               >

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { cn } from '@/lib/utils';
 
 export interface BadgeProps extends React.HTMLAttributes<HTMLDivElement> {
-  variant?: 'default' | 'electric' | 'success' | 'outline' | 'purple';
+  variant?: 'default' | 'lime' | 'outline' | 'dark' | 'electric' | 'purple' | 'success';
 }
 
 export function Badge({
@@ -13,21 +13,25 @@ export function Badge({
 }: BadgeProps) {
   const variants = {
     default:
-      'bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 border-neutral-200 dark:border-neutral-700',
+      'bg-neutral-100 dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 border-neutral-300 dark:border-neutral-800',
+    lime:
+      'bg-[#A3F527]/10 text-[#A3F527] border-[#A3F527]/40 font-mono font-bold',
     electric:
-      'bg-blue-50 dark:bg-blue-950/50 text-[#0066FF] dark:text-blue-400 border-blue-200 dark:border-blue-900/60',
-    success:
-      'bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 border-emerald-200 dark:border-emerald-900/60',
-    outline:
-      'bg-transparent text-neutral-600 dark:text-neutral-400 border-neutral-200 dark:border-neutral-800',
+      'bg-[#A3F527]/10 text-[#A3F527] border-[#A3F527]/40 font-mono font-bold',
     purple:
-      'bg-purple-50 dark:bg-purple-950/50 text-purple-600 dark:text-purple-400 border-purple-200 dark:border-purple-900/60',
+      'bg-[#A3F527]/15 text-[#A3F527] border-[#A3F527]/50 font-mono font-bold',
+    success:
+      'bg-[#A3F527]/15 text-[#A3F527] border-[#A3F527]/50 font-mono font-bold',
+    outline:
+      'bg-transparent text-neutral-600 dark:text-neutral-400 border-neutral-300 dark:border-neutral-800 font-mono',
+    dark:
+      'bg-black text-white dark:bg-white dark:text-black border-black dark:border-white font-mono',
   };
 
   return (
     <div
       className={cn(
-        'inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border transition-colors',
+        'inline-flex items-center px-2 py-0.5 text-[11px] font-mono tracking-wider border rounded-none transition-colors',
         variants[variant],
         className
       )}

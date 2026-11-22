@@ -13,8 +13,8 @@ export function HeroScene() {
     if (!ctx) return;
 
     let animationFrameId: number;
-    let width = (canvas.width = canvas.parentElement?.clientWidth || 600);
-    let height = (canvas.height = canvas.parentElement?.clientHeight || 600);
+    let width = (canvas.width = canvas.parentElement?.clientWidth || 500);
+    let height = (canvas.height = canvas.parentElement?.clientHeight || 500);
 
     let mouseX = width / 2;
     let mouseY = height / 2;
@@ -37,8 +37,8 @@ export function HeroScene() {
     window.addEventListener('mousemove', handleMouseMove);
 
     // 3D Sphere Points
-    const numPoints = 180;
-    const radius = Math.min(width, height) * 0.38;
+    const numPoints = 190;
+    const radius = Math.min(width, height) * 0.36;
     interface Point3D {
       x: number;
       y: number;
@@ -60,14 +60,9 @@ export function HeroScene() {
       const y = radius * Math.sin(theta) * Math.sin(phi);
       const z = radius * Math.cos(theta);
 
-      // Electric blue and violet accents
-      const isElectricBlue = i % 3 === 0;
-      const isViolet = i % 5 === 0;
-      const color = isElectricBlue
-        ? '#0066FF'
-        : isViolet
-        ? '#7C3AED'
-        : '#00F0FF';
+      // Neon Lime (#A3F527) and Pure White
+      const isLime = i % 2 === 0;
+      const color = isLime ? '#A3F527' : '#FFFFFF';
 
       points.push({
         x,
@@ -77,7 +72,7 @@ export function HeroScene() {
         baseY: y,
         baseZ: z,
         color,
-        size: Math.random() * 2 + 1.5,
+        size: Math.random() * 2 + 1.2,
       });
     }
 
@@ -102,17 +97,14 @@ export function HeroScene() {
       const centerX = width / 2;
       const centerY = height / 2;
 
-      // Project and draw points
       const projectedPoints: { x: number; y: number; z: number; color: string; size: number }[] = [];
 
       for (let i = 0; i < points.length; i++) {
         const p = points[i];
 
-        // Rotate around Y
         let x1 = p.baseX * cosY - p.baseZ * sinY;
         let z1 = p.baseZ * cosY + p.baseX * sinY;
 
-        // Rotate around X
         let y1 = p.baseY * cosX - z1 * sinX;
         let z2 = z1 * cosX + p.baseY * sinX;
 
@@ -134,19 +126,18 @@ export function HeroScene() {
         });
       }
 
-      // Sort points by depth for natural rendering
       projectedPoints.sort((a, b) => b.z - a.z);
 
       // Connect nearby points with delicate lines
-      ctx.lineWidth = 0.6;
+      ctx.lineWidth = 0.5;
       for (let i = 0; i < projectedPoints.length; i++) {
         const p1 = projectedPoints[i];
         for (let j = i + 1; j < projectedPoints.length; j++) {
           const p2 = projectedPoints[j];
           const dist = Math.hypot(p1.x - p2.x, p1.y - p2.y);
-          if (dist < 45) {
-            const alpha = (1 - dist / 45) * 0.22;
-            ctx.strokeStyle = `rgba(0, 102, 255, ${alpha})`;
+          if (dist < 42) {
+            const alpha = (1 - dist / 42) * 0.22;
+            ctx.strokeStyle = `rgba(163, 245, 39, ${alpha})`;
             ctx.beginPath();
             ctx.moveTo(p1.x, p1.y);
             ctx.lineTo(p2.x, p2.y);
@@ -155,15 +146,15 @@ export function HeroScene() {
         }
       }
 
-      // Draw point nodes with glowing halos
+      // Draw point nodes
       for (const p of projectedPoints) {
         ctx.fillStyle = p.color;
         ctx.beginPath();
-        ctx.arc(p.x, p.y, Math.max(0.8, p.size), 0, Math.PI * 2);
+        ctx.arc(p.x, p.y, Math.max(0.7, p.size), 0, Math.PI * 2);
         ctx.fill();
 
-        if (p.size > 2.2) {
-          ctx.fillStyle = 'rgba(0, 102, 255, 0.15)';
+        if (p.color === '#A3F527' && p.size > 1.8) {
+          ctx.fillStyle = 'rgba(163, 245, 39, 0.2)';
           ctx.beginPath();
           ctx.arc(p.x, p.y, p.size * 2, 0, Math.PI * 2);
           ctx.fill();
@@ -183,15 +174,15 @@ export function HeroScene() {
   }, []);
 
   return (
-    <div className="relative w-full h-full min-h-[380px] lg:min-h-[500px] flex items-center justify-center pointer-events-auto">
+    <div className="relative w-full h-full min-h-[380px] lg:min-h-[480px] flex items-center justify-center">
       <canvas
         ref={canvasRef}
         className="w-full h-full block cursor-grab active:cursor-grabbing"
       />
-      {/* Subtle overlay badge */}
-      <div className="absolute bottom-4 right-4 bg-white/70 dark:bg-neutral-900/70 backdrop-blur-md px-3 py-1.5 rounded-lg border border-neutral-200/80 dark:border-neutral-800/80 text-[11px] font-mono text-neutral-500 flex items-center gap-2">
-        <span className="w-2 h-2 rounded-full bg-[#0066FF] animate-pulse"></span>
-        Interactive 3D Geometry
+      {/* Square Minimal Technical Tag */}
+      <div className="absolute bottom-3 right-3 bg-black/90 border border-neutral-800 px-2.5 py-1 text-[10px] font-mono text-[#A3F527] flex items-center gap-2">
+        <span className="w-1.5 h-1.5 bg-[#A3F527] animate-pulse"></span>
+        60FPS_WEBGL_SYSTEM
       </div>
     </div>
   );

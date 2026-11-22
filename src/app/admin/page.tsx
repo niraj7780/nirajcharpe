@@ -67,7 +67,7 @@ export default function AdminPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
             <div className="flex items-center gap-2 mb-1">
-              <Badge variant="purple" className="font-mono text-xs">
+              <Badge variant="lime" className="font-mono text-xs">
                 Protected Portal
               </Badge>
               <span className="text-xs font-mono text-neutral-500">
@@ -232,7 +232,7 @@ export default function AdminPage() {
                             </div>
 
                             <div className="flex items-center gap-2 text-xs font-mono">
-                              <Badge variant="electric" className="text-[10px]">
+                              <Badge variant="lime" className="text-[10px]">
                                 {inq.websiteType}
                               </Badge>
                               <span className="text-neutral-400 text-[10px]">

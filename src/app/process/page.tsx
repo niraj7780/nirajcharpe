@@ -5,12 +5,11 @@ import {
   Clock,
   ArrowRight,
   ShieldCheck,
-  Video,
+  Search,
   FileText,
+  Layout,
   Code2,
   Rocket,
-  Search,
-  Layout,
   HelpCircle
 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
@@ -20,71 +19,70 @@ export default function ProcessPage() {
   const stepIcons = [Search, FileText, Layout, Code2, ShieldCheck, Rocket];
 
   return (
-    <div className="flex flex-col min-h-screen bg-white dark:bg-[#090A0F] text-neutral-900 dark:text-neutral-100">
+    <div className="flex flex-col min-h-screen bg-white dark:bg-[#050505] text-neutral-900 dark:text-neutral-100">
       {/* Header Banner */}
-      <section className="pt-16 pb-20 border-b border-neutral-200/80 dark:border-neutral-800/80 bg-neutral-50/50 dark:bg-[#0B0C12] bg-grid-pattern">
+      <section className="pt-16 pb-20 border-b border-neutral-200 dark:border-neutral-800 bg-neutral-50/50 dark:bg-[#080808] bg-tech-grid">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <Badge variant="electric" className="font-mono text-xs uppercase tracking-wider">
-            Methodical Collaboration
+          <Badge variant="lime" className="uppercase tracking-widest text-[11px]">
+            COLLABORATIVE METHODOLOGY
           </Badge>
-          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-neutral-950 dark:text-white">
+          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight uppercase font-mono text-neutral-950 dark:text-white">
             The 6-Step Development Process
           </h1>
-          <p className="text-base sm:text-lg text-neutral-600 dark:text-neutral-300 max-w-2xl mx-auto leading-relaxed">
-            Predictable delivery, zero ambiguity, and weekly milestone demos. Here is exactly how we take your project from raw idea to high-performance launch.
+          <p className="text-xs sm:text-sm font-mono text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto leading-relaxed">
+            Predictable delivery, zero ambiguity, and weekly milestone previews. From technical discovery to automated edge deployment.
           </p>
 
           <div className="pt-2 text-xs font-mono text-neutral-500 flex items-center justify-center gap-6">
             <span>• Guaranteed Written Scope</span>
             <span>• Private Staging Previews</span>
-            <span>• Direct Slack/WhatsApp Access</span>
+            <span>• Direct Developer Access</span>
           </div>
         </div>
       </section>
 
-      {/* Process Steps Timeline */}
-      <section className="py-20 border-b border-neutral-200/80 dark:border-neutral-800/80">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      {/* Process Steps Timeline - Minimal Square */}
+      <section className="py-20 border-b border-neutral-200 dark:border-neutral-800">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           {developmentProcess.map((step, index) => {
             const Icon = stepIcons[index] || Code2;
             return (
               <div
                 key={step.stepNumber}
-                className="p-8 lg:p-10 rounded-2xl border border-neutral-200/80 dark:border-neutral-800/80 bg-white dark:bg-[#11131B] shadow-sm relative space-y-6"
+                className="p-8 border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0A0A0A] space-y-6 hover:border-[#A3F527] transition-all group"
               >
                 {/* Step Top Bar */}
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-neutral-100 dark:border-neutral-800">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-neutral-100 dark:border-neutral-900">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-950 text-[#0066FF] flex items-center justify-center">
-                      <Icon className="w-5 h-5" />
+                    <div className="w-9 h-9 border border-neutral-300 dark:border-neutral-800 bg-neutral-50 dark:bg-[#060606] text-[#A3F527] flex items-center justify-center font-mono font-bold text-sm">
+                      0{step.stepNumber}
                     </div>
                     <div>
-                      <span className="text-xs font-mono font-bold text-[#0066FF] dark:text-blue-400">
+                      <span className="text-[10px] font-mono font-bold text-[#A3F527] uppercase tracking-widest">
                         PHASE 0{step.stepNumber}
                       </span>
-                      <h2 className="text-2xl font-bold text-neutral-950 dark:text-white">
+                      <h2 className="text-xl font-bold font-mono uppercase text-neutral-950 dark:text-white group-hover:text-[#A3F527] transition-colors">
                         {step.title}
                       </h2>
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-3 text-xs font-mono">
-                    <div className="px-3 py-1 rounded-md bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300 flex items-center gap-1.5">
-                      <Clock className="w-3.5 h-3.5 text-[#0066FF]" />
-                      <span>{step.duration}</span>
-                    </div>
+                  <div className="flex items-center gap-2 text-xs font-mono">
+                    <span className="px-2.5 py-1 border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-[#060606] text-neutral-600 dark:text-neutral-400">
+                      Duration: {step.duration}
+                    </span>
                   </div>
                 </div>
 
                 {/* Step Narrative & Commitment */}
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
                   <div className="lg:col-span-7 space-y-4">
-                    <p className="text-sm text-neutral-600 dark:text-neutral-300 leading-relaxed">
+                    <p className="text-xs sm:text-sm font-mono text-neutral-600 dark:text-neutral-400 leading-relaxed">
                       {step.details}
                     </p>
 
-                    <div className="p-3.5 rounded-xl bg-neutral-50 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 text-xs space-y-1">
-                      <span className="font-semibold text-neutral-900 dark:text-white font-mono uppercase text-[10px]">
+                    <div className="p-3 border border-neutral-200 dark:border-neutral-900 bg-neutral-50 dark:bg-[#060606] text-xs font-mono space-y-1">
+                      <span className="font-bold text-neutral-900 dark:text-white uppercase text-[10px]">
                         Client Time Commitment:
                       </span>
                       <p className="text-neutral-600 dark:text-neutral-400">
@@ -92,13 +90,13 @@ export default function ProcessPage() {
                       </p>
                     </div>
 
-                    <div className="space-y-1.5 pt-2">
+                    <div className="space-y-1 pt-2">
                       <span className="font-mono text-[10px] uppercase tracking-wider text-neutral-400 font-bold block">
-                        Strategic Questions We Resolve:
+                        Questions We Address:
                       </span>
                       {step.keyQuestions.map((q) => (
-                        <div key={q} className="flex items-start gap-2 text-xs text-neutral-600 dark:text-neutral-400 italic">
-                          <HelpCircle className="w-3.5 h-3.5 text-neutral-400 shrink-0 mt-0.5" />
+                        <div key={q} className="flex items-start gap-2 text-xs font-mono text-neutral-500 italic">
+                          <span className="text-[#A3F527]">›</span>
                           <span>&ldquo;{q}&rdquo;</span>
                         </div>
                       ))}
@@ -106,15 +104,15 @@ export default function ProcessPage() {
                   </div>
 
                   {/* Deliverables Column */}
-                  <div className="lg:col-span-5 p-5 rounded-xl border border-blue-500/20 bg-blue-50/20 dark:bg-blue-950/20 space-y-3">
-                    <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-neutral-900 dark:text-white flex items-center gap-1.5">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-500" />
+                  <div className="lg:col-span-5 p-5 border border-[#A3F527]/30 bg-[#A3F527]/5 space-y-3">
+                    <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-[#A3F527] flex items-center gap-1.5">
+                      <CheckCircle2 className="w-4 h-4" />
                       <span>Phase Deliverables:</span>
                     </h3>
-                    <ul className="space-y-2 text-xs text-neutral-700 dark:text-neutral-300">
+                    <ul className="space-y-2 text-xs font-mono text-neutral-800 dark:text-neutral-200">
                       {step.deliverables.map((deliv) => (
                         <li key={deliv} className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#0066FF] shrink-0 mt-1.5" />
+                          <span className="text-[#A3F527] font-bold">✓</span>
                           <span>{deliv}</span>
                         </li>
                       ))}
@@ -127,25 +125,25 @@ export default function ProcessPage() {
         </div>
       </section>
 
-      {/* Communication & Staging Guarantee */}
-      <section className="py-20 bg-neutral-50/50 dark:bg-[#0B0C12] text-center">
+      {/* Bottom CTA */}
+      <section className="py-20 bg-black text-white text-center border-t border-neutral-800">
         <div className="max-w-4xl mx-auto px-4 space-y-6">
-          <Badge variant="purple" className="font-mono text-xs">
-            Client Transparency Standard
+          <Badge variant="lime" className="font-mono text-xs">
+            Direct Developer Partnership
           </Badge>
-          <h2 className="text-3xl font-bold text-neutral-950 dark:text-white">
-            You Are Never Left Guessing About Project Progress
+          <h2 className="text-3xl font-extrabold uppercase font-mono text-white">
+            Experience Transparent, Predictable Execution
           </h2>
-          <p className="text-sm text-neutral-600 dark:text-neutral-400 max-w-xl mx-auto leading-relaxed">
-            Clients receive a private staging URL deployed on edge servers. As features are developed each week, you can test and interact with them in real-time.
+          <p className="text-xs sm:text-sm font-mono text-neutral-400 max-w-xl mx-auto leading-relaxed">
+            Every feature is verified, documented, committed to GitHub, and deployed to live edge staging before final sign-off.
           </p>
 
           <div className="pt-2">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-[#0066FF] hover:bg-[#0052db] text-white font-bold text-xs shadow-md"
+              className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#A3F527] text-black font-mono font-bold text-xs uppercase tracking-wider shadow-md hover:bg-[#8AE40E]"
             >
-              <span>Schedule a Project Discovery Call</span>
+              <span>Schedule Project Discovery</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

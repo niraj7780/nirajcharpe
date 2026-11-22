@@ -1,19 +1,15 @@
 import { MetadataRoute } from 'next';
-import { projectsData } from '@/data/projects';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://niraj.dev';
 
-  const staticRoutes = [
+  const routes = [
     '',
-    '/about',
-    '/services',
-    '/portfolio',
-    '/demos',
-    '/technologies',
+    '/websites',
+    '/ai-tools',
+    '/automation',
     '/process',
-    '/testimonials',
-    '/pricing',
+    '/about',
     '/contact',
   ].map((route) => ({
     url: `${baseUrl}${route}`,
@@ -22,12 +18,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: route === '' ? 1.0 : 0.8,
   }));
 
-  const projectRoutes = projectsData.map((project) => ({
-    url: `${baseUrl}/portfolio/${project.id}`,
-    lastModified: new Date(),
-    changeFrequency: 'monthly' as const,
-    priority: 0.7,
-  }));
-
-  return [...staticRoutes, ...projectRoutes];
+  return routes;
 }

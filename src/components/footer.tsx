@@ -15,8 +15,8 @@ export function Footer() {
               <div className="w-8 h-8 bg-black dark:bg-[#A3F527] flex items-center justify-center font-mono font-bold text-white dark:text-black text-sm">
                 N
               </div>
-              <span className="font-bold text-base tracking-tight font-mono text-neutral-950 dark:text-white">
-                NIRAJ<span className="text-[#A3F527]">.DEV</span>
+              <span className="font-black text-lg tracking-tight font-display text-neutral-950 dark:text-white">
+                NIRAJ<span className="font-cursive italic font-normal text-[#A3F527] lowercase text-xl">.dev</span>
               </span>
             </Link>
 

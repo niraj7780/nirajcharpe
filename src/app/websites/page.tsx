@@ -12,7 +12,8 @@ import {
   ArrowRight,
   Terminal,
   ShieldCheck,
-  Check
+  Check,
+  ExternalLink
 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -23,49 +24,54 @@ export default function WebsitesPage() {
   const [selectedDemo, setSelectedDemo] = React.useState<string | null>(null);
 
   return (
-    <div className="flex flex-col min-h-screen bg-white dark:bg-[#050505] text-neutral-900 dark:text-neutral-100">
-      {/* Header Banner */}
-      <section className="pt-16 pb-20 border-b border-neutral-200 dark:border-neutral-800 bg-neutral-50/50 dark:bg-[#080808] bg-tech-grid">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <Badge variant="lime" className="uppercase tracking-widest text-[11px]">
-            SERVICE 01 • WEBSITE DEVELOPMENT
-          </Badge>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-neutral-950 dark:text-white uppercase font-mono">
-            20 Production Website Types
+    <div className="flex flex-col min-h-screen bg-black text-white selection:bg-[#A3F527] selection:text-black">
+      {/* Header Banner with Bold Fonts & Cursive Accents */}
+      <section className="pt-20 pb-20 border-b border-neutral-800 bg-neutral-950">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-2 bg-[#A3F527] animate-pulse" />
+            <Badge variant="lime" className="uppercase tracking-widest text-xs font-mono">
+              SERVICE // 01 • WEBSITE DEVELOPMENT
+            </Badge>
+          </div>
+
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black font-display tracking-tight text-white uppercase">
+            20 Production <span className="font-cursive italic font-normal text-[#A3F527] lowercase tracking-normal">websites</span> Deployed on Vercel
           </h1>
-          <p className="text-xs sm:text-sm font-mono text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto leading-relaxed">
-            Engineered with Next.js 14 and Tailwind CSS. Built, automatically pushed to GitHub repositories, and deployed with zero downtime to Vercel edge networks.
+
+          <p className="text-base sm:text-lg text-neutral-400 max-w-3xl leading-relaxed">
+            High-converting digital experiences engineered with Next.js 14 and Tailwind CSS. Every build is automatically pushed to GitHub repositories and deployed with zero downtime to Vercel global Edge networks.
           </p>
 
           {/* Automated Pipeline Indicators */}
-          <div className="pt-4 flex flex-wrap justify-center gap-3 text-xs font-mono">
-            <span className="px-3 py-1.5 border border-neutral-300 dark:border-neutral-800 bg-white dark:bg-[#0A0A0A] flex items-center gap-2">
+          <div className="pt-2 flex flex-wrap gap-3 text-xs font-mono">
+            <span className="px-3 py-1.5 border border-neutral-800 bg-neutral-900 flex items-center gap-2">
               <span className="w-2 h-2 bg-[#A3F527]"></span>
-              Automated GitHub Repo Sync
+              Automated GitHub Push
             </span>
-            <span className="px-3 py-1.5 border border-neutral-300 dark:border-neutral-800 bg-white dark:bg-[#0A0A0A] flex items-center gap-2">
+            <span className="px-3 py-1.5 border border-neutral-800 bg-neutral-900 flex items-center gap-2">
               <span className="w-2 h-2 bg-[#A3F527]"></span>
-              Automatic 1-Click Vercel Deploy
+              Zero-Downtime Vercel Edge Deploy
             </span>
-            <span className="px-3 py-1.5 border border-neutral-300 dark:border-neutral-800 bg-white dark:bg-[#0A0A0A] flex items-center gap-2">
+            <span className="px-3 py-1.5 border border-neutral-800 bg-neutral-900 flex items-center gap-2">
               <span className="w-2 h-2 bg-[#A3F527]"></span>
-              Sub-Second Global Edge CDN
+              Sub-Second Global Edge CDN (98+ Lighthouse)
             </span>
           </div>
         </div>
       </section>
 
-      {/* Interactive Demo Modal if opened */}
+      {/* Quick Interactive Demo Modal if opened */}
       {selectedDemo && (
-        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="w-full max-w-2xl border border-[#A3F527] bg-[#0A0A0A] p-6 space-y-4 max-h-[90vh] overflow-y-auto">
+        <div className="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="w-full max-w-3xl border border-[#A3F527] bg-[#0A0A0A] p-6 space-y-4 max-h-[90vh] overflow-y-auto">
             <div className="flex items-center justify-between pb-3 border-b border-neutral-800">
               <span className="font-mono text-xs text-[#A3F527] uppercase tracking-wider font-bold">
-                Interactive Working Prototype
+                Quick Interactive Sandbox Preview
               </span>
               <button
                 onClick={() => setSelectedDemo(null)}
-                className="font-mono text-xs text-neutral-400 hover:text-white px-2 py-1 border border-neutral-800"
+                className="font-mono text-xs text-neutral-400 hover:text-white px-2.5 py-1 border border-neutral-800 hover:border-neutral-600"
               >
                 Close [ESC]
               </button>
@@ -78,12 +84,12 @@ export default function WebsitesPage() {
       {/* 20 Website Examples Grid */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-          <div className="flex items-center justify-between border-b border-neutral-200 dark:border-neutral-800 pb-3">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-neutral-800 pb-4 gap-2">
             <span className="text-xs font-mono uppercase tracking-widest text-neutral-400 font-bold">
-              Production Portfolio Categories (01 – 20)
+              Production Portfolio Index (01 – 20)
             </span>
             <span className="text-xs font-mono text-[#A3F527]">
-              All 20 Types Available For Client Customization
+              Every Format Ready for Bespoke Client Deployment
             </span>
           </div>
 
@@ -91,25 +97,31 @@ export default function WebsitesPage() {
             {websiteExamples.map((site) => (
               <div
                 key={site.id}
-                className="p-6 border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0A0A0A] hover:border-[#A3F527] transition-all flex flex-col justify-between group"
+                className="p-6 border border-neutral-800 bg-neutral-950 hover:border-[#A3F527]/60 transition-colors flex flex-col justify-between group"
               >
                 <div className="space-y-4">
-                  {/* Top Bar with Number & Target */}
-                  <div className="flex items-start justify-between gap-2 border-b border-neutral-100 dark:border-neutral-900 pb-3">
-                    <span className="font-mono font-bold text-2xl text-neutral-900 dark:text-white group-hover:text-[#A3F527] transition-colors">
-                      {site.number}
-                    </span>
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-500 text-right max-w-xs">
+                  {/* Top Bar with Number & Category */}
+                  <div className="flex items-start justify-between gap-2 border-b border-neutral-800 pb-3">
+                    <div className="flex items-center gap-2">
+                      <span className="font-mono font-black text-2xl text-white group-hover:text-[#A3F527] transition-colors">
+                        {site.number}
+                      </span>
+                      <span className="text-[10px] font-mono px-2 py-0.5 border border-[#A3F527]/30 bg-[#A3F527]/10 text-[#A3F527] font-bold">
+                        {site.category}
+                      </span>
+                    </div>
+
+                    <span className="text-[10px] font-mono uppercase text-neutral-500 text-right max-w-xs">
                       Target: {site.clientTarget}
                     </span>
                   </div>
 
                   {/* Title & Short Description */}
                   <div>
-                    <h3 className="font-bold text-lg text-neutral-950 dark:text-white group-hover:text-[#A3F527] transition-colors">
+                    <h3 className="font-bold font-mono text-xl text-white group-hover:text-[#A3F527] transition-colors">
                       {site.title}
                     </h3>
-                    <p className="text-xs font-mono text-neutral-600 dark:text-neutral-400 mt-1 leading-relaxed">
+                    <p className="text-xs font-mono text-neutral-400 mt-1 leading-relaxed">
                       {site.shortDesc}
                     </p>
                   </div>
@@ -117,31 +129,24 @@ export default function WebsitesPage() {
                   {/* Key Features */}
                   <div className="space-y-1.5 pt-1">
                     {site.features.map((feat) => (
-                      <div key={feat} className="flex items-start gap-2 text-xs font-mono text-neutral-700 dark:text-neutral-300">
+                      <div key={feat} className="flex items-start gap-2 text-xs font-mono text-neutral-300">
                         <span className="text-[#A3F527] font-bold">›</span>
                         <span>{feat}</span>
                       </div>
                     ))}
                   </div>
 
-                  {/* Automated Deployment Pipeline Status */}
-                  <div className="p-3 border border-neutral-200 dark:border-neutral-900 bg-neutral-50 dark:bg-[#060606] space-y-1 text-[11px] font-mono">
-                    <span className="text-neutral-400 block text-[10px] uppercase font-bold">
-                      Automated Pipeline & Delivery:
-                    </span>
-                    <div className="grid grid-cols-2 gap-1 text-neutral-600 dark:text-neutral-400">
-                      <span className="flex items-center gap-1">
-                        <span className="w-1.5 h-1.5 bg-[#A3F527]"></span> Auto GitHub Push
+                  {/* Vercel Live Deployment Link & Pipeline */}
+                  <div className="p-3 border border-neutral-800 bg-black space-y-1.5 text-[11px] font-mono">
+                    <div className="flex items-center justify-between text-[10px]">
+                      <span className="text-neutral-400 uppercase font-bold flex items-center gap-1.5">
+                        <span className="w-1.5 h-1.5 bg-[#A3F527]" />
+                        Vercel Global Edge:
                       </span>
-                      <span className="flex items-center gap-1">
-                        <span className="w-1.5 h-1.5 bg-[#A3F527]"></span> 1-Click Vercel Deploy
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <span className="w-1.5 h-1.5 bg-[#A3F527]"></span> Automated SSL & DNS
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <span className="w-1.5 h-1.5 bg-[#A3F527]"></span> 100% Code Ownership
-                      </span>
+                      <span className="text-[#A3F527] font-bold">AUTOMATED CI/CD</span>
+                    </div>
+                    <div className="text-[10px] text-neutral-500 truncate font-mono">
+                      {site.vercelLiveUrl}
                     </div>
                   </div>
 
@@ -150,7 +155,7 @@ export default function WebsitesPage() {
                     {site.techStack.map((tech) => (
                       <span
                         key={tech}
-                        className="px-2 py-0.5 text-[10px] font-mono border border-neutral-200 dark:border-neutral-800 text-neutral-600 dark:text-neutral-400"
+                        className="px-2 py-0.5 text-[10px] font-mono border border-neutral-800 bg-neutral-900 text-neutral-400"
                       >
                         {tech}
                       </span>
@@ -159,18 +164,27 @@ export default function WebsitesPage() {
                 </div>
 
                 {/* Card Action Buttons */}
-                <div className="pt-5 mt-5 border-t border-neutral-100 dark:border-neutral-900 flex items-center justify-between gap-3">
-                  <button
-                    onClick={() => setSelectedDemo(site.demoType)}
-                    className="text-xs font-mono font-bold text-[#A3F527] hover:underline flex items-center gap-1"
-                  >
-                    <span>Test Working Demo</span>
-                    <ArrowUpRight className="w-3.5 h-3.5" />
-                  </button>
+                <div className="pt-5 mt-5 border-t border-neutral-800 flex flex-wrap items-center justify-between gap-3">
+                  <div className="flex items-center gap-3">
+                    <Link
+                      href={`/websites/${site.slug}`}
+                      className="px-3.5 py-2 border border-[#A3F527] bg-[#A3F527] text-black font-mono text-xs font-bold uppercase tracking-wider hover:bg-[#8AE40E] transition-colors flex items-center gap-1"
+                    >
+                      <span>Launch Live Website</span>
+                      <ArrowUpRight className="w-3.5 h-3.5" />
+                    </Link>
+
+                    <button
+                      onClick={() => setSelectedDemo(site.demoType)}
+                      className="text-xs font-mono text-neutral-400 hover:text-white underline underline-offset-4"
+                    >
+                      Quick Sandbox
+                    </button>
+                  </div>
 
                   <Link
-                    href={`/contact?websiteCategory=${encodeURIComponent(site.title)}`}
-                    className="px-3 py-1.5 bg-black text-white dark:bg-white dark:text-black hover:bg-[#A3F527] hover:text-black dark:hover:bg-[#A3F527] dark:hover:text-black font-mono text-[11px] font-bold uppercase transition-colors"
+                    href={`/contact?service=${encodeURIComponent(site.title)}`}
+                    className="px-3 py-1.5 border border-neutral-700 bg-transparent text-white font-mono text-[11px] font-bold uppercase hover:border-[#A3F527] hover:text-[#A3F527] transition-colors"
                   >
                     Build This For Me
                   </Link>
@@ -181,22 +195,22 @@ export default function WebsitesPage() {
         </div>
       </section>
 
-      {/* Callout Banner */}
-      <section className="py-16 border-t border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-[#080808] text-center">
+      {/* Callout Banner with Cursive Accent */}
+      <section className="py-20 border-t border-neutral-800 bg-neutral-950 text-center">
         <div className="max-w-4xl mx-auto px-4 space-y-4">
-          <Badge variant="lime" className="font-mono text-xs">
+          <Badge variant="lime" className="font-mono text-xs uppercase tracking-widest">
             Direct Engineering Delivery
           </Badge>
-          <h2 className="text-2xl sm:text-3xl font-extrabold uppercase font-mono text-neutral-950 dark:text-white">
-            Ready to Build Your Website with Automated Deployment?
+          <h2 className="text-3xl sm:text-5xl font-black font-display uppercase text-white">
+            Ready to Build Your Website with <span className="font-cursive italic font-normal text-[#A3F527] lowercase tracking-normal">automated</span> Edge Deployment?
           </h2>
-          <p className="text-xs sm:text-sm font-mono text-neutral-600 dark:text-neutral-400 max-w-xl mx-auto leading-relaxed">
-            Every website is engineered for sub-second page loads, maximum conversion rates, and total IP ownership.
+          <p className="text-xs sm:text-sm font-mono text-neutral-400 max-w-xl mx-auto leading-relaxed">
+            Every website is engineered for sub-second page loads, maximum conversion rates, clean GitHub repository handoff, and zero-downtime Vercel hosting.
           </p>
-          <div className="pt-2">
+          <div className="pt-4">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3.5 bg-[#A3F527] text-black font-mono font-bold text-xs uppercase tracking-wider shadow-md hover:bg-[#8AE40E]"
+              className="inline-flex items-center gap-2 px-8 py-3.5 border border-[#A3F527] bg-[#A3F527] text-black font-mono font-bold text-xs uppercase tracking-wider hover:bg-[#8AE40E] transition-colors"
             >
               <span>Initiate Website Project</span>
               <ArrowRight className="w-4 h-4" />

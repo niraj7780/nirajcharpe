@@ -51,8 +51,8 @@ export function Navbar() {
               N
             </div>
             <div className="flex flex-col">
-              <span className="font-bold text-base tracking-tight font-mono text-neutral-950 dark:text-white flex items-center gap-1">
-                NIRAJ<span className="text-[#A3F527]">.DEV</span>
+              <span className="font-black text-lg tracking-tight font-display text-neutral-950 dark:text-white flex items-center gap-0.5">
+                NIRAJ<span className="font-cursive italic font-normal text-[#A3F527] lowercase text-xl">.dev</span>
               </span>
               <span className="text-[9px] uppercase font-mono tracking-widest text-neutral-500">
                 Web • AI • Automation

@@ -1065,15 +1065,353 @@ export function RestaurantReservationDemo() {
 }
 
 // -------------------------------------------------------------
+// 9. Luxury Salon & Spa Sanctuary Booking Demo
+// -------------------------------------------------------------
+export function LuxurySalonDemo() {
+  const [selectedService, setSelectedService] = React.useState('Royal Sculpt & Styling');
+  const [selectedStylist, setSelectedStylist] = React.useState('Elena Vance (Master Stylist)');
+  const [selectedTime, setSelectedTime] = React.useState('14:30');
+  const [confirmed, setConfirmed] = React.useState(false);
+
+  const services = [
+    { name: 'Royal Sculpt & Styling', duration: '60 min', price: '$95' },
+    { name: 'Beard Artistry & Hot Towel', duration: '45 min', price: '$65' },
+    { name: 'Keratin Scalp Rejuvenation', duration: '75 min', price: '$140' },
+    { name: 'Botanical Clay Deep Facial', duration: '60 min', price: '$110' },
+  ];
+
+  const stylists = [
+    'Elena Vance (Master Stylist)',
+    'Marcus Thorne (Artistic Director)',
+    'Aria Chen (Senior Colorist)'
+  ];
+
+  const timeSlots = ['10:00', '11:30', '14:30', '16:00', '17:30'];
+
+  return (
+    <div className="space-y-4 font-mono text-xs">
+      <div className="flex items-center justify-between border-b border-neutral-800 pb-2">
+        <div>
+          <span className="text-[10px] text-[#A3F527] uppercase tracking-wider block font-bold">LUMIÈRE SANCTUARY</span>
+          <h3 className="text-sm font-bold text-white font-mono uppercase">Luxury Salon & Spa Booking</h3>
+        </div>
+        <Badge variant="lime">Live Booking API</Badge>
+      </div>
+
+      {/* Service Selector */}
+      <div className="space-y-1.5">
+        <label className="text-[10px] text-neutral-400 uppercase">Select Signature Treatment:</label>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+          {services.map((svc) => (
+            <button
+              key={svc.name}
+              onClick={() => setSelectedService(svc.name)}
+              className={`p-2.5 text-left border transition-colors ${
+                selectedService === svc.name
+                  ? 'border-[#A3F527] bg-[#A3F527]/10 text-white'
+                  : 'border-neutral-800 bg-neutral-950 text-neutral-400 hover:text-white'
+              }`}
+            >
+              <div className="flex justify-between font-bold">
+                <span>{svc.name}</span>
+                <span className="text-[#A3F527]">{svc.price}</span>
+              </div>
+              <span className="text-[10px] text-neutral-500">{svc.duration}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Stylist Selector */}
+      <div className="space-y-1.5">
+        <label className="text-[10px] text-neutral-400 uppercase">Choose Lead Specialist:</label>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+          {stylists.map((st) => (
+            <button
+              key={st}
+              onClick={() => setSelectedStylist(st)}
+              className={`p-2 text-left border text-[11px] truncate transition-colors ${
+                selectedStylist === st
+                  ? 'border-[#A3F527] bg-[#A3F527]/10 text-white'
+                  : 'border-neutral-800 bg-neutral-950 text-neutral-400 hover:text-white'
+              }`}
+            >
+              {st}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Time Slot Selector */}
+      <div className="space-y-1.5">
+        <label className="text-[10px] text-neutral-400 uppercase">Available Time Slots (Today):</label>
+        <div className="flex flex-wrap gap-2">
+          {timeSlots.map((slot) => (
+            <button
+              key={slot}
+              onClick={() => setSelectedTime(slot)}
+              className={`px-3 py-1.5 border text-[11px] font-bold ${
+                selectedTime === slot
+                  ? 'border-[#A3F527] bg-[#A3F527] text-black'
+                  : 'border-neutral-800 bg-neutral-950 text-neutral-400 hover:border-neutral-700'
+              }`}
+            >
+              {slot}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Confirmation Area */}
+      <div className="pt-2 border-t border-neutral-800">
+        {confirmed ? (
+          <div className="p-3 border border-[#A3F527] bg-[#A3F527]/10 text-white space-y-1">
+            <p className="font-bold text-[#A3F527] flex items-center gap-1.5">
+              <span>✓ Appointment Confirmed</span>
+            </p>
+            <p className="text-[11px] text-neutral-300">
+              Reserved {selectedService} with {selectedStylist} at {selectedTime}. Confirmation token #LUM-8824.
+            </p>
+            <button
+              onClick={() => setConfirmed(false)}
+              className="text-[10px] text-neutral-400 underline mt-1 block"
+            >
+              Book another appointment
+            </button>
+          </div>
+        ) : (
+          <Button
+            variant="lime"
+            size="sm"
+            onClick={() => setConfirmed(true)}
+            className="w-full text-xs font-bold py-2.5"
+          >
+            Confirm Luxury Reservation
+          </Button>
+        )}
+      </div>
+    </div>
+  );
+}
+
+// -------------------------------------------------------------
+// 10. Minimalist Creative Developer Portfolio Demo
+// -------------------------------------------------------------
+export function DeveloperPortfolioDemo() {
+  const [terminalInput, setTerminalInput] = React.useState('');
+  const [terminalHistory, setTerminalHistory] = React.useState<string[]>([
+    'NIRAJ.DEV [Version 2.4.0]',
+    'Type "help" to inspect commands or "skills" to view benchmarks.',
+  ]);
+
+  const handleCommand = (e: React.FormEvent) => {
+    e.preventDefault();
+    const cmd = terminalInput.trim().toLowerCase();
+    let reply = '';
+    if (cmd === 'help') {
+      reply = 'Available commands: bio, skills, stack, services, deploy, contact, clear';
+    } else if (cmd === 'bio') {
+      reply = 'Niraj Charpe — Full-Stack Developer & Python Automation Specialist. Worldwide remote.';
+    } else if (cmd === 'skills') {
+      reply = 'Next.js 14, TypeScript, Python 3.12, FastAPI, WebGL Three.js, pgvector, Vercel Edge CI/CD.';
+    } else if (cmd === 'services') {
+      reply = '1. Website Development (20 Examples) | 2. Custom AI Tools (RAG/Agents) | 3. Business Automation';
+    } else if (cmd === 'deploy') {
+      reply = 'Git push -> Vercel edge build -> Sub-second global rollout across 18 edge regions.';
+    } else if (cmd === 'contact') {
+      reply = 'Direct email: nirajcharpe48@gmail.com | GitHub: github.com/niraj7780';
+    } else if (cmd === 'clear') {
+      setTerminalHistory([]);
+      setTerminalInput('');
+      return;
+    } else {
+      reply = `Unknown command "${cmd}". Type "help" for available commands.`;
+    }
+
+    setTerminalHistory((prev) => [...prev, `$ ${terminalInput}`, reply]);
+    setTerminalInput('');
+  };
+
+  return (
+    <div className="space-y-3 font-mono text-xs">
+      <div className="flex items-center justify-between border-b border-neutral-800 pb-2">
+        <span className="text-white font-bold uppercase tracking-wider">DEV // TERMINAL WORKBENCH</span>
+        <Badge variant="lime">CLI Interactive Mode</Badge>
+      </div>
+
+      <div className="p-3 border border-neutral-800 bg-black min-h-[180px] max-h-[220px] overflow-y-auto space-y-1 text-neutral-300">
+        {terminalHistory.map((line, i) => (
+          <p key={i} className={line.startsWith('$') ? 'text-[#A3F527] font-bold' : ''}>
+            {line}
+          </p>
+        ))}
+      </div>
+
+      <form onSubmit={handleCommand} className="flex gap-2">
+        <span className="p-2 border border-neutral-800 bg-neutral-950 text-[#A3F527] font-bold">$</span>
+        <input
+          type="text"
+          value={terminalInput}
+          onChange={(e) => setTerminalInput(e.target.value)}
+          placeholder="Type 'bio', 'services', 'skills', or 'help'..."
+          className="flex-1 px-3 py-2 border border-neutral-800 bg-neutral-950 text-white text-xs font-mono focus:outline-none focus:border-[#A3F527]"
+        />
+        <Button variant="lime" size="sm" type="submit">
+          Exec
+        </Button>
+      </form>
+    </div>
+  );
+}
+
+// -------------------------------------------------------------
+// 11. Fintech Wealth & Asset Management Demo
+// -------------------------------------------------------------
+export function FintechWealthDemo() {
+  const [swapAmount, setSwapAmount] = React.useState('1.5');
+  const [swapped, setSwapped] = React.useState(false);
+  const ethRate = 3450.25;
+  const usdValue = (parseFloat(swapAmount || '0') * ethRate).toFixed(2);
+
+  return (
+    <div className="space-y-4 font-mono text-xs">
+      <div className="flex items-center justify-between border-b border-neutral-800 pb-2">
+        <div>
+          <span className="text-[10px] text-[#A3F527] uppercase tracking-wider block font-bold">APEX CAPITAL</span>
+          <h3 className="text-sm font-bold text-white uppercase">Wealth Management Terminal</h3>
+        </div>
+        <Badge variant="lime">Live FX Feeds</Badge>
+      </div>
+
+      {/* Portfolio Balance Header */}
+      <div className="p-4 border border-neutral-800 bg-black space-y-1">
+        <span className="text-[10px] text-neutral-500 uppercase">Total Liquidity Pool</span>
+        <p className="text-2xl font-black font-mono text-white">$482,910.42 <span className="text-xs text-[#A3F527] font-bold">+4.8% 24h</span></p>
+        <div className="grid grid-cols-3 gap-2 pt-2 text-[10px] text-neutral-400">
+          <div>BTC: 45.2%</div>
+          <div>ETH: 32.8%</div>
+          <div>USDT/USD: 22.0%</div>
+        </div>
+      </div>
+
+      {/* Simulated Quick Swap */}
+      <div className="p-3 border border-neutral-800 bg-neutral-950 space-y-2">
+        <label className="text-[10px] text-neutral-400 uppercase">Instant Currency Swap Simulator:</label>
+        <div className="flex items-center gap-2">
+          <input
+            type="number"
+            step="0.1"
+            value={swapAmount}
+            onChange={(e) => setSwapAmount(e.target.value)}
+            className="w-24 px-2 py-1.5 border border-neutral-800 bg-black text-white font-mono text-xs"
+          />
+          <span className="text-neutral-400">ETH ≈</span>
+          <span className="text-[#A3F527] font-bold text-sm">${usdValue} USD</span>
+        </div>
+        <Button
+          variant="lime"
+          size="sm"
+          onClick={() => {
+            setSwapped(true);
+            setTimeout(() => setSwapped(false), 3000);
+          }}
+          className="w-full text-xs"
+        >
+          {swapped ? 'Swap Executed on Edge ✓' : 'Simulate Asset Rebalance'}
+        </Button>
+      </div>
+    </div>
+  );
+}
+
+// -------------------------------------------------------------
+// 12. Boutique Hotel & Resort Booking Demo
+// -------------------------------------------------------------
+export function HotelBookingDemo() {
+  const [selectedSuite, setSelectedSuite] = React.useState('Oceanfront Cliff Villa');
+  const [nights, setNights] = React.useState(3);
+  const [booked, setBooked] = React.useState(false);
+
+  const suites = [
+    { name: 'Oceanfront Cliff Villa', rate: 450 },
+    { name: 'Alpine Forest Chalet', rate: 380 },
+    { name: 'Presidential Royal Suite', rate: 750 },
+  ];
+
+  const current = suites.find((s) => s.name === selectedSuite) || suites[0];
+  const total = current.rate * nights;
+
+  return (
+    <div className="space-y-4 font-mono text-xs">
+      <div className="flex items-center justify-between border-b border-neutral-800 pb-2">
+        <div>
+          <span className="text-[10px] text-[#A3F527] uppercase tracking-wider block font-bold">AURA RESIDENCES</span>
+          <h3 className="text-sm font-bold text-white uppercase">Resort & Villa Booking Engine</h3>
+        </div>
+        <Badge variant="lime">Global PMS</Badge>
+      </div>
+
+      <div className="space-y-2">
+        <label className="text-[10px] text-neutral-400 uppercase">Choose Residence:</label>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+          {suites.map((s) => (
+            <button
+              key={s.name}
+              onClick={() => setSelectedSuite(s.name)}
+              className={`p-2.5 text-left border ${
+                selectedSuite === s.name
+                  ? 'border-[#A3F527] bg-[#A3F527]/10 text-white'
+                  : 'border-neutral-800 bg-neutral-950 text-neutral-400 hover:text-white'
+              }`}
+            >
+              <div className="font-bold">{s.name}</div>
+              <div className="text-[#A3F527] text-[11px]">${s.rate}/night</div>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div className="flex items-center justify-between p-3 border border-neutral-800 bg-black">
+        <div>
+          <span className="text-neutral-500 text-[10px] block uppercase">Stay Duration:</span>
+          <div className="flex items-center gap-2 mt-1">
+            <button onClick={() => setNights(Math.max(1, nights - 1))} className="px-2 py-0.5 border border-neutral-700">-</button>
+            <span className="font-bold text-white">{nights} Nights</span>
+            <button onClick={() => setNights(nights + 1)} className="px-2 py-0.5 border border-neutral-700">+</button>
+          </div>
+        </div>
+        <div className="text-right">
+          <span className="text-neutral-500 text-[10px] block uppercase">Estimated Stay Total:</span>
+          <span className="text-xl font-bold font-mono text-[#A3F527]">${total}</span>
+        </div>
+      </div>
+
+      {booked ? (
+        <div className="p-3 border border-[#A3F527] bg-[#A3F527]/10 text-[#A3F527] font-bold text-center">
+          ✓ Booking Hold Reserved for {nights} nights at {selectedSuite}!
+        </div>
+      ) : (
+        <Button variant="lime" size="sm" onClick={() => setBooked(true)} className="w-full">
+          Reserve Luxury Suite
+        </Button>
+      )}
+    </div>
+  );
+}
+
+// -------------------------------------------------------------
 // Concept Demo Container with Modal & Switcher
 // -------------------------------------------------------------
 export function InteractiveDemoViewer({ demoId }: { demoId: string }) {
   switch (demoId) {
     case '3d-configurator':
+    case '3d-interactive':
       return <SpatialConfiguratorDemo />;
     case 'ecommerce-cart':
+    case 'ecommerce-store':
       return <EcommerceCartDemo />;
     case 'saas-analytics':
+    case 'saas-platform':
       return <SaasDashboardDemo />;
     case 'healthcare-portal':
       return <HealthcareTriageDemo />;
@@ -1085,6 +1423,15 @@ export function InteractiveDemoViewer({ demoId }: { demoId: string }) {
       return <LandingAbConversionDemo />;
     case 'restaurant-experience':
       return <RestaurantReservationDemo />;
+    case 'luxury-salon':
+      return <LuxurySalonDemo />;
+    case 'developer-portfolio':
+      return <DeveloperPortfolioDemo />;
+    case 'fintech-wealth':
+      return <FintechWealthDemo />;
+    case 'hotel-booking':
+    case 'hotel-booking-resort':
+      return <HotelBookingDemo />;
     default:
       return <SpatialConfiguratorDemo />;
   }

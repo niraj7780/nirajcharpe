@@ -1,9 +1,10 @@
 import { MetadataRoute } from 'next';
+import { websiteExamples } from '@/data/website-examples';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://niraj.dev';
 
-  const routes = [
+  const baseRoutes = [
     '',
     '/websites',
     '/ai-tools',
@@ -18,5 +19,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: route === '' ? 1.0 : 0.8,
   }));
 
-  return routes;
+  const websiteRoutes = websiteExamples.map((site) => ({
+    url: `${baseUrl}/websites/${site.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly' as const,
+    priority: 0.9,
+  }));
+
+  return [...baseRoutes, ...websiteRoutes];
 }

@@ -44,7 +44,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: '#ffffff' },
-    { media: '(prefers-color-scheme: dark)', color: '#090A0F' },
+    { media: '(prefers-color-scheme: dark)', color: '#050505' },
   ],
   width: 'device-width',
   initialScale: 1,
@@ -57,7 +57,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning className="dark">
-      <body className="min-h-screen bg-white dark:bg-[#090A0F] text-neutral-900 dark:text-neutral-100 antialiased selection:bg-[#0066FF] selection:text-white flex flex-col font-sans">
+      <body className="min-h-screen bg-white dark:bg-[#050505] text-neutral-900 dark:text-neutral-100 antialiased selection:bg-[#A3F527] selection:text-black flex flex-col font-sans">
         <ThemeProvider defaultTheme="dark">
           <Navbar />
           <main className="flex-1">{children}</main>

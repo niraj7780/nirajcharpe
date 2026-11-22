@@ -10,6 +10,7 @@ export interface Project {
   architecture: string;
   githubUrl: string;
   liveDemoUrl?: string;
+  liveUrl?: string;
   status: 'Production' | 'Active Development' | 'Beta';
   featured: boolean;
   completionDate: string;

@@ -29,7 +29,7 @@ export const conceptDemos: InteractiveDemo[] = [
       'Point-light position and intensity sliders'
     ],
     interactiveControls: ['Color Theme', 'Geometry Shape', 'Wireframe Toggle', 'Rotation Speed'],
-    colorAccent: '#0066FF'
+    colorAccent: '#A3F527'
   },
   {
     id: 'ecommerce-cart',

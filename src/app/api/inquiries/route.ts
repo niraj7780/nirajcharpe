@@ -43,12 +43,19 @@ const globalInquiries: ClientInquiry[] = [
 ];
 
 export async function GET(request: NextRequest) {
-  // Simple admin key verification or basic read
+  // Admin key verification to prevent unauthorized reading of client contact submissions
   const authHeader = request.headers.get('authorization');
   const { searchParams } = new URL(request.url);
   const key = searchParams.get('adminKey') || authHeader?.replace('Bearer ', '');
+  const validPasskey = process.env.ADMIN_PASSKEY || 'niraj-admin-2026';
 
-  // If queried by admin
+  if (!key || key !== validPasskey) {
+    return NextResponse.json(
+      { success: false, error: 'Unauthorized access. Valid admin passkey required.' },
+      { status: 401 }
+    );
+  }
+
   return NextResponse.json({
     success: true,
     count: globalInquiries.length,

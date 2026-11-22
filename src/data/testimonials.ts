@@ -72,8 +72,8 @@ export const collaborationPrinciples = [
     description: 'You speak directly with the senior developer building your project—zero account managers, zero lost-in-translation handoffs.'
   },
   {
-    title: 'Transparent Milestone Pricing',
-    description: 'Clear written scope with guaranteed pricing. No surprise invoices, hidden hosting markups, or hourly billing creep.'
+    title: 'Predictable Milestone Scoping',
+    description: 'Clear written scope with fixed deliverable milestones. No surprise scope creep, hidden hosting markups, or arbitrary hourly billing.'
   },
   {
     title: 'Sub-Second Speed Guarantee',

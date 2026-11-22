@@ -149,3 +149,5 @@ export const automationPipelines: AutomationPipeline[] = [
     techStack: ['Next.js', 'FastAPI', 'PostgreSQL', 'SendGrid', 'Webhooks']
   }
 ];
+
+export const automationData = automationPipelines;

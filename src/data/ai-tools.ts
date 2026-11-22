@@ -11,6 +11,7 @@ export interface AiToolService {
 }
 
 export const aiToolsServices: AiToolService[] = [
+
   {
     id: 'document-rag',
     number: '01',
@@ -140,3 +141,5 @@ export const aiToolsServices: AiToolService[] = [
     techStack: ['Python', 'Docker', 'GitHub API', 'FastAPI', 'Gemini API']
   }
 ];
+
+export const aiToolsData = aiToolsServices;

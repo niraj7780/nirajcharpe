@@ -69,7 +69,7 @@ export default function WebsiteDetailPage({ params }: { params: { slug: string }
           <div className="hidden lg:flex items-center gap-3 text-xs font-mono border border-neutral-800 px-3 py-1.5 bg-black">
             <span className="w-2 h-2 bg-[#A3F527] animate-pulse" />
             <span className="text-neutral-300 font-bold">Vercel Edge Global CDN:</span>
-            <span className="text-[#A3F527] truncate">niraj-dev.vercel.app/websites/{site.slug}</span>
+            <span className="text-[#A3F527] truncate">niraj-portfolio-pied.vercel.app/websites/{site.slug}</span>
           </div>
 
           {/* Right: Actions & CTAs */}

@@ -31,7 +31,7 @@ export const websiteExamples: WebsiteExample[] = [
     features: ['60 FPS orbital mouse camera rotation', 'Real-time material shader switching (Volt Lime, Chrome, Carbon)', 'Wireframe topology inspection', 'Custom lighting & geometry controls'],
     techStack: ['Three.js', 'WebGL', 'React Three Fiber', 'Next.js 14', 'Tailwind CSS'],
     demoType: '3d-configurator',
-    vercelLiveUrl: 'https://niraj-dev.vercel.app/websites/3d-interactive',
+    vercelLiveUrl: 'https://niraj-portfolio-pied.vercel.app/websites/3d-interactive',
     githubRepoUrl: 'https://github.com/niraj7780/3d-webgl-showcase',
     deployPipeline: { githubRepoCreated: true, autoPushConfigured: true, vercelEdgeDeploy: true, sslAndDnsAutomation: true }
   },
@@ -46,7 +46,7 @@ export const websiteExamples: WebsiteExample[] = [
     features: ['Instant category & attribute filtering', 'Slide-out persistent cart drawer', 'Coupon discount calculator (DEV20)', 'Sub-second edge checkout pipeline'],
     techStack: ['Next.js 14', 'React 18', 'Tailwind CSS', 'Stripe API', 'Zustand'],
     demoType: 'ecommerce-cart',
-    vercelLiveUrl: 'https://niraj-dev.vercel.app/websites/ecommerce-store',
+    vercelLiveUrl: 'https://niraj-portfolio-pied.vercel.app/websites/ecommerce-store',
     githubRepoUrl: 'https://github.com/niraj7780/luxury-ecommerce-store',
     deployPipeline: { githubRepoCreated: true, autoPushConfigured: true, vercelEdgeDeploy: true, sslAndDnsAutomation: true }
   },
@@ -61,7 +61,7 @@ export const websiteExamples: WebsiteExample[] = [
     features: ['Minimal square architectural grid', 'Interactive CLI command terminal', 'Filterable engineering case studies', 'Direct inquiry modal hook'],
     techStack: ['Next.js 14', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
     demoType: 'developer-portfolio',
-    vercelLiveUrl: 'https://niraj-dev.vercel.app/websites/developer-portfolio',
+    vercelLiveUrl: 'https://niraj-portfolio-pied.vercel.app/websites/developer-portfolio',
     githubRepoUrl: 'https://github.com/niraj7780/minimalist-dev-portfolio',
     deployPipeline: { githubRepoCreated: true, autoPushConfigured: true, vercelEdgeDeploy: true, sslAndDnsAutomation: true }
   },
@@ -76,7 +76,7 @@ export const websiteExamples: WebsiteExample[] = [
     features: ['Dietary filter tabs (Chef Specials, Vegan, Gluten-Free)', 'Interactive guest party size selector', 'Time slot booking engine with calendar', 'Instant SMS/Email reservation confirmation'],
     techStack: ['Next.js 14', 'React', 'Tailwind CSS', 'FastAPI'],
     demoType: 'restaurant-experience',
-    vercelLiveUrl: 'https://niraj-dev.vercel.app/websites/restaurant-experience',
+    vercelLiveUrl: 'https://niraj-portfolio-pied.vercel.app/websites/restaurant-experience',
     githubRepoUrl: 'https://github.com/niraj7780/restaurant-bistro-platform',
     deployPipeline: { githubRepoCreated: true, autoPushConfigured: true, vercelEdgeDeploy: true, sslAndDnsAutomation: true }
   },
@@ -91,7 +91,7 @@ export const websiteExamples: WebsiteExample[] = [
     features: ['Treatment category selector (Hair, Beard, Facials, Spa)', 'Master stylist profile picker', 'Real-time appointment slot calendar', 'Automated deposit & calendar reminder'],
     techStack: ['Next.js 14', 'React', 'Tailwind CSS', 'FastAPI'],
     demoType: 'luxury-salon',
-    vercelLiveUrl: 'https://niraj-dev.vercel.app/websites/luxury-salon',
+    vercelLiveUrl: 'https://niraj-portfolio-pied.vercel.app/websites/luxury-salon',
     githubRepoUrl: 'https://github.com/niraj7780/luxury-salon-booking',
     deployPipeline: { githubRepoCreated: true, autoPushConfigured: true, vercelEdgeDeploy: true, sslAndDnsAutomation: true }
   },
@@ -106,7 +106,7 @@ export const websiteExamples: WebsiteExample[] = [
     features: ['Interactive metric preview canvas', 'Dynamic monthly/annual feature comparison', 'OAuth signup modals', 'Sub-second edge rendering'],
     techStack: ['Next.js 14', 'TypeScript', 'Tailwind CSS', 'PostgreSQL'],
     demoType: 'saas-analytics',
-    vercelLiveUrl: 'https://niraj-dev.vercel.app/websites/saas-platform',
+    vercelLiveUrl: 'https://niraj-portfolio-pied.vercel.app/websites/saas-platform',
     githubRepoUrl: 'https://github.com/niraj7780/modern-saas-platform',
     deployPipeline: { githubRepoCreated: true, autoPushConfigured: true, vercelEdgeDeploy: true, sslAndDnsAutomation: true }
   },
@@ -121,7 +121,7 @@ export const websiteExamples: WebsiteExample[] = [
     features: ['Interactive monthly EMI loan calculator', 'Down payment & interest rate sliders', 'Floor plan architectural specs', 'Private viewing booking modal'],
     techStack: ['Next.js 14', 'React', 'Tailwind CSS'],
     demoType: 'real-estate-showcase',
-    vercelLiveUrl: 'https://niraj-dev.vercel.app/websites/real-estate-showcase',
+    vercelLiveUrl: 'https://niraj-portfolio-pied.vercel.app/websites/real-estate-showcase',
     githubRepoUrl: 'https://github.com/niraj7780/luxury-real-estate-portal',
     deployPipeline: { githubRepoCreated: true, autoPushConfigured: true, vercelEdgeDeploy: true, sslAndDnsAutomation: true }
   },
@@ -136,7 +136,7 @@ export const websiteExamples: WebsiteExample[] = [
     features: ['Specialist doctor availability badges', 'Interactive appointment slot calendar', 'Preliminary symptom triage assessment', 'Instant booking confirmation receipt'],
     techStack: ['Next.js 14', 'FastAPI', 'Tailwind CSS', 'PostgreSQL'],
     demoType: 'healthcare-portal',
-    vercelLiveUrl: 'https://niraj-dev.vercel.app/websites/healthcare-portal',
+    vercelLiveUrl: 'https://niraj-portfolio-pied.vercel.app/websites/healthcare-portal',
     githubRepoUrl: 'https://github.com/niraj7780/healthcare-triage-portal',
     deployPipeline: { githubRepoCreated: true, autoPushConfigured: true, vercelEdgeDeploy: true, sslAndDnsAutomation: true }
   },
@@ -151,7 +151,7 @@ export const websiteExamples: WebsiteExample[] = [
     features: ['Corporate RFP inquiry pipeline', 'Filterable client case studies', 'Executive leadership credentials', 'Schema.org corporate metadata'],
     techStack: ['Next.js 14', 'TypeScript', 'Tailwind CSS'],
     demoType: 'corporate-portal',
-    vercelLiveUrl: 'https://niraj-dev.vercel.app/websites/corporate-portal',
+    vercelLiveUrl: 'https://niraj-portfolio-pied.vercel.app/websites/corporate-portal',
     githubRepoUrl: 'https://github.com/niraj7780/corporate-consulting-portal',
     deployPipeline: { githubRepoCreated: true, autoPushConfigured: true, vercelEdgeDeploy: true, sslAndDnsAutomation: true }
   },
@@ -166,7 +166,7 @@ export const websiteExamples: WebsiteExample[] = [
     features: ['Interactive module curriculum outline', 'Course duration & progress estimates', 'Instructor credential badges', 'Enrollment modal wizard'],
     techStack: ['Next.js 14', 'TypeScript', 'Tailwind CSS'],
     demoType: 'education-lms',
-    vercelLiveUrl: 'https://niraj-dev.vercel.app/websites/education-lms',
+    vercelLiveUrl: 'https://niraj-portfolio-pied.vercel.app/websites/education-lms',
     githubRepoUrl: 'https://github.com/niraj7780/tech-academy-lms',
     deployPipeline: { githubRepoCreated: true, autoPushConfigured: true, vercelEdgeDeploy: true, sslAndDnsAutomation: true }
   },
@@ -181,7 +181,7 @@ export const websiteExamples: WebsiteExample[] = [
     features: ['Portfolio asset allocation breakdown', 'Real-time FX currency converter', 'Security compliance badging', 'Exportable audit reports'],
     techStack: ['Next.js 14', 'FastAPI', 'PostgreSQL', 'Tailwind CSS'],
     demoType: 'fintech-wealth',
-    vercelLiveUrl: 'https://niraj-dev.vercel.app/websites/fintech-wealth',
+    vercelLiveUrl: 'https://niraj-portfolio-pied.vercel.app/websites/fintech-wealth',
     githubRepoUrl: 'https://github.com/niraj7780/fintech-wealth-terminal',
     deployPipeline: { githubRepoCreated: true, autoPushConfigured: true, vercelEdgeDeploy: true, sslAndDnsAutomation: true }
   },
@@ -196,7 +196,7 @@ export const websiteExamples: WebsiteExample[] = [
     features: ['Live A/B headline variant comparison', 'Simulated real-time waitlist counter', 'Conversion element callouts', 'Sub-second load times'],
     techStack: ['Next.js 14', 'Tailwind CSS', 'Edge Middleware'],
     demoType: 'high-converting-landing',
-    vercelLiveUrl: 'https://niraj-dev.vercel.app/websites/high-converting-landing',
+    vercelLiveUrl: 'https://niraj-portfolio-pied.vercel.app/websites/high-converting-landing',
     githubRepoUrl: 'https://github.com/niraj7780/high-converting-landing',
     deployPipeline: { githubRepoCreated: true, autoPushConfigured: true, vercelEdgeDeploy: true, sslAndDnsAutomation: true }
   },
@@ -211,7 +211,7 @@ export const websiteExamples: WebsiteExample[] = [
     features: ['Interactive deal pipeline columns', 'Deal value sum totals', 'Lead score probability metrics', 'Contact detail side drawer'],
     techStack: ['Next.js 14', 'FastAPI', 'PostgreSQL', 'Tailwind CSS'],
     demoType: 'b2b-crm-pipeline',
-    vercelLiveUrl: 'https://niraj-dev.vercel.app/websites/b2b-crm-pipeline',
+    vercelLiveUrl: 'https://niraj-portfolio-pied.vercel.app/websites/b2b-crm-pipeline',
     githubRepoUrl: 'https://github.com/niraj7780/b2b-crm-pipeline',
     deployPipeline: { githubRepoCreated: true, autoPushConfigured: true, vercelEdgeDeploy: true, sslAndDnsAutomation: true }
   },
@@ -226,7 +226,7 @@ export const websiteExamples: WebsiteExample[] = [
     features: ['SKU inventory counts & status badges', 'Low-stock automated warning thresholds', 'Supplier procurement status', 'Multi-facility stock audit'],
     techStack: ['Python', 'FastAPI', 'PostgreSQL', 'React'],
     demoType: 'logistics-erp',
-    vercelLiveUrl: 'https://niraj-dev.vercel.app/websites/logistics-erp',
+    vercelLiveUrl: 'https://niraj-portfolio-pied.vercel.app/websites/logistics-erp',
     githubRepoUrl: 'https://github.com/niraj7780/logistics-erp-inventory',
     deployPipeline: { githubRepoCreated: true, autoPushConfigured: true, vercelEdgeDeploy: true, sslAndDnsAutomation: true }
   },
@@ -241,7 +241,7 @@ export const websiteExamples: WebsiteExample[] = [
     features: ['Live countdown clock to summit', 'Multi-track agenda schedule (Tech, AI, Systems)', 'Speaker credentials', 'VIP pass reservation modal'],
     techStack: ['Next.js 14', 'Tailwind CSS'],
     demoType: 'event-summit-portal',
-    vercelLiveUrl: 'https://niraj-dev.vercel.app/websites/event-summit-portal',
+    vercelLiveUrl: 'https://niraj-portfolio-pied.vercel.app/websites/event-summit-portal',
     githubRepoUrl: 'https://github.com/niraj7780/tech-summit-portal',
     deployPipeline: { githubRepoCreated: true, autoPushConfigured: true, vercelEdgeDeploy: true, sslAndDnsAutomation: true }
   },
@@ -256,7 +256,7 @@ export const websiteExamples: WebsiteExample[] = [
     features: ['Day-by-day tour itinerary breakdown', 'Season & weather widget', 'Interactive budget estimator', 'High-res gallery cards'],
     techStack: ['Next.js 14', 'Tailwind CSS'],
     demoType: 'travel-destinations',
-    vercelLiveUrl: 'https://niraj-dev.vercel.app/websites/travel-destinations',
+    vercelLiveUrl: 'https://niraj-portfolio-pied.vercel.app/websites/travel-destinations',
     githubRepoUrl: 'https://github.com/niraj7780/adventure-travel-platform',
     deployPipeline: { githubRepoCreated: true, autoPushConfigured: true, vercelEdgeDeploy: true, sslAndDnsAutomation: true }
   },
@@ -271,7 +271,7 @@ export const websiteExamples: WebsiteExample[] = [
     features: ['Salary range filter slider', 'Remote / Hybrid / Onsite toggles', 'Quick Apply modal dialog', 'Company tech stack tags'],
     techStack: ['Next.js 14', 'PostgreSQL', 'Tailwind CSS'],
     demoType: 'job-board-portal',
-    vercelLiveUrl: 'https://niraj-dev.vercel.app/websites/job-board-portal',
+    vercelLiveUrl: 'https://niraj-portfolio-pied.vercel.app/websites/job-board-portal',
     githubRepoUrl: 'https://github.com/niraj7780/tech-job-board',
     deployPipeline: { githubRepoCreated: true, autoPushConfigured: true, vercelEdgeDeploy: true, sslAndDnsAutomation: true }
   },
@@ -286,7 +286,7 @@ export const websiteExamples: WebsiteExample[] = [
     features: ['Simulated Web3 wallet modal', 'Instant token exchange calculator', 'Slippage tolerance configuration', 'Live network gas fee tracker'],
     techStack: ['React', 'TypeScript', 'Tailwind CSS'],
     demoType: 'web3-token-terminal',
-    vercelLiveUrl: 'https://niraj-dev.vercel.app/websites/web3-token-terminal',
+    vercelLiveUrl: 'https://niraj-portfolio-pied.vercel.app/websites/web3-token-terminal',
     githubRepoUrl: 'https://github.com/niraj7780/web3-token-terminal',
     deployPipeline: { githubRepoCreated: true, autoPushConfigured: true, vercelEdgeDeploy: true, sslAndDnsAutomation: true }
   },
@@ -301,7 +301,7 @@ export const websiteExamples: WebsiteExample[] = [
     features: ['Check-in / check-out date selector', 'Suite selection with amenity icons', 'Guest count controls', 'Live stay total calculation'],
     techStack: ['React', 'Next.js 14', 'Tailwind CSS'],
     demoType: 'hotel-booking-resort',
-    vercelLiveUrl: 'https://niraj-dev.vercel.app/websites/hotel-booking-resort',
+    vercelLiveUrl: 'https://niraj-portfolio-pied.vercel.app/websites/hotel-booking-resort',
     githubRepoUrl: 'https://github.com/niraj7780/hotel-resort-booking',
     deployPipeline: { githubRepoCreated: true, autoPushConfigured: true, vercelEdgeDeploy: true, sslAndDnsAutomation: true }
   },
@@ -316,7 +316,7 @@ export const websiteExamples: WebsiteExample[] = [
     features: ['Bold typography hierarchy', 'Split-screen case study layouts', 'Interactive client credential roster', 'Express creative brief generator'],
     techStack: ['Next.js 14', 'Tailwind CSS'],
     demoType: 'agency-editorial-showcase',
-    vercelLiveUrl: 'https://niraj-dev.vercel.app/websites/agency-editorial-showcase',
+    vercelLiveUrl: 'https://niraj-portfolio-pied.vercel.app/websites/agency-editorial-showcase',
     githubRepoUrl: 'https://github.com/niraj7780/agency-editorial-showcase',
     deployPipeline: { githubRepoCreated: true, autoPushConfigured: true, vercelEdgeDeploy: true, sslAndDnsAutomation: true }
   }
